@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44367</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -49,6 +49,12 @@
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.1.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -61,6 +67,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -115,9 +123,20 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\tarc_logo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\UniversityOnlineAssessmentModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityOnlineAssessmentModel.edmx</DependentUpon>
+      <LastGenOutput>UniversityOnlineAssessmentModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UniversityOnlineAssessmentModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityOnlineAssessmentModel.edmx</DependentUpon>
+      <LastGenOutput>UniversityOnlineAssessmentModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -140,6 +159,13 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <EntityDeploy Include="Models\UniversityOnlineAssessmentModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniversityOnlineAssessmentModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UniversityOnlineAssessmentModel.edmx.diagram">
+      <DependentUpon>UniversityOnlineAssessmentModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -176,7 +202,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="Views\WebForm1.aspx" />
+    <Content Include="Views\Homepage.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -195,6 +221,78 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Answer.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Applications.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Paths.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Roles.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_SchemaVersions.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Users.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_WebEvent_Events.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Assessment.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lecturer_Assessment.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lecturer_Profile.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student_Answer.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student_Assessment.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student_Profile.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniversityOnlineAssessmentModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityOnlineAssessmentModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniversityOnlineAssessmentModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UniversityOnlineAssessmentModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityOnlineAssessmentModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -203,16 +301,16 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Image_Storage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -227,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -247,7 +346,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>4409</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4409/</IISUrl>
+          <IISUrl>https://localhost:44367/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

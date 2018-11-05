@@ -13,6 +13,9 @@ namespace university_online_assessment
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+
+            // Main homepage route
+            routes.MapPageRoute("MainHomepage", "", "~/Views/Homepage.aspx");
         }
     }
 }

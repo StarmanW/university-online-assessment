@@ -43,7 +43,10 @@
 
         <%--Navigation Bar--%>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="/">
+                <img src="../Content/Images/tarc_logo.png" width="40" height="40" class="d-inline-block align-top" />
+                TAR UC Online Assessment
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -51,37 +54,45 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Student Login</a>
+                            <a class="dropdown-item" href="#">Lecturer Login</a>
+                            <a class="dropdown-item" href="#">Admin Login</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
         <%--Main Content Placeholder--%>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        </asp:ContentPlaceHolder>
+        <section id="mainSection">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
 
         <%--Footer--%>
-        <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+        <footer class="bg-dark text-light py-3">
+            <div class="container">
+                <h5 class="text-center">TAR UC &copy; <%: DateTime.Now.Year %></h5>
+                <hr class="border-light" />
+                <div class="row justify-content-center">
+                    <div class="col-md-4 text-center border-right">
+                        <a href="/" class="text-white">Home Page</a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="https://www.tarc.edu.my/" target="_blank" class="text-white">TAR UC Official Website</a>
+                    </div>
+                </div>
+            </div>
         </footer>
-
     </form>
 </body>
 </html>

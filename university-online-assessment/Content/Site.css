@@ -1,1 +1,4 @@
 ﻿/*Insert custom css here*/
+#mainSection {
+    min-height:100vh;
+}

@@ -72,3 +72,7 @@ C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assess
 C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\obj\Debug\university-online-assessment.csproj.CopyComplete
 C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\obj\Debug\university-online-assessment.dll
 C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\obj\Debug\university-online-assessment.pdb
+C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\bin\EntityFramework.dll
+C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\bin\EntityFramework.SqlServer.dll
+C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\bin\EntityFramework.xml
+C:\Users\StarmanW\Documents\Visual Studio 2017\Projects\university-online-assessment\university-online-assessment\bin\EntityFramework.SqlServer.xml
