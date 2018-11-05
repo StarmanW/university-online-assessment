@@ -14,6 +14,22 @@ namespace university_online_assessment
     {
         void Application_Start(object sender, EventArgs e)
         {
+            // Call initialization methods
+            initApplicationRoles();
+            initSubjectDatabase();
+            initAdminAccount();
+
+            // Code that runs on application startup
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        /**
+         * Private method for initializing
+         * aspnet_Roles table in database
+         */
+        private void initApplicationRoles()
+        {
             // Declare roles for this application
             string[] app_roles = {
                 "Admin",
@@ -21,6 +37,37 @@ namespace university_online_assessment
                 "Student"
             };
 
+            // Loop through roles and create them 
+            foreach (string role in app_roles)
+            {
+                if (!Roles.RoleExists(role))
+                {
+                    Roles.CreateRole(role);
+                }
+            }
+        }
+
+        /**
+         * Private method for creating an
+         * admin account.
+         */
+        private void initAdminAccount()
+        {
+            // Check if admin account is null or not
+            if (Membership.GetUser("admin123") is null)
+            {
+                // Create an admin account and add it into "Admin" role
+                Membership.CreateUser("admin123", "admin12345", "admin@example.com");
+                Roles.AddUserToRole("admin123", "Admin");
+            }
+        }
+
+        /**
+         * Private method for initializing
+         * Subject table in database
+         */
+        private void initSubjectDatabase()
+        {
             // Declare subjects for the application
             string[] subjects =
             {
@@ -32,22 +79,8 @@ namespace university_online_assessment
                 "BAIT3343 Agile Software Development"
             };
 
-            // Code that runs on application startup
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            // Loop through roles and create them 
-            foreach (string role in app_roles)
-            {
-                if (!Roles.RoleExists(role))
-                {
-                    Roles.CreateRole(role);
-                }
-            }
-
             /**
              * Temporarily use db connection to insert the subjects
-             * 
              */
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
