@@ -18,7 +18,7 @@ namespace university_online_assessment.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string icNum { get; set; }
-        public byte[] birthDate { get; set; }
+        public string birthDate { get; set; }
         public string gender { get; set; }
         public string contactNo { get; set; }
         public string address { get; set; }

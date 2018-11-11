@@ -123,6 +123,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\citc2.png" />
+    <Content Include="Content\Images\kelli-tungay-324329-unsplash.jpg" />
     <Content Include="Content\Images\tarc_logo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -205,6 +207,7 @@
     <Content Include="Views\Admin\RegisterLecturer.aspx" />
     <Content Include="Views\Homepage.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\Anonymous\RegisterStudent.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -326,15 +329,24 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Anonymous\RegisterStudent.aspx.cs">
+      <DependentUpon>RegisterStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Anonymous\RegisterStudent.aspx.designer.cs">
+      <DependentUpon>RegisterStudent.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image_Storage\" />
+    <Folder Include="Views\Errors\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Admin\Web.config" />
+    <Content Include="Views\Anonymous\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -2,3 +2,22 @@
 #mainSection {
     min-height:100vh;
 }
+
+#loginSection {
+    min-height: 100vh;
+    background: url("Images/citc2.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Section style*/
+section#registerStudSection .container,
+section#registerLecturerSection .container {
+    min-height: 100vh;
+    max-width: 800px;
+}
+
+section#registerStudSection,
+section#registerLecturerSection {
+    background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+}

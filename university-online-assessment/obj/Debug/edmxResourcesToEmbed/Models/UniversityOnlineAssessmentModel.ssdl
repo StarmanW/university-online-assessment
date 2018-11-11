@@ -164,7 +164,7 @@
     <Property Name="firstName" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="lastName" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="icNum" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="birthDate" Type="varbinary" MaxLength="10" Nullable="false" />
+    <Property Name="birthDate" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="gender" Type="nchar" MaxLength="1" Nullable="false" />
     <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
@@ -204,7 +204,7 @@
     <Property Name="firstName" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="lastName" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="icNum" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="birthDate" Type="varbinary" MaxLength="10" Nullable="false" />
+    <Property Name="birthDate" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="gender" Type="nchar" MaxLength="1" Nullable="false" />
     <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />

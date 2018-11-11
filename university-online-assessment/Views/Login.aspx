@@ -14,7 +14,7 @@
         });
     </script>
 
-    <section id="loginSection" style="min-height: 100vh">
+    <section id="loginSection">
         <div class="container pt-5">
 
             <%--Nav tabs--%>

@@ -12,7 +12,31 @@ namespace university_online_assessment.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Verify the request is from an authenticated user
+            if (Request.IsAuthenticated)
+            {
+                /**
+                 * If authenticated user try to access unauthorized page,
+                 * they will be redirected to Login page (Makes no sense
+                 * to them because they're logged-in). To fix this, when
+                 * the user is redirected to the login page, the URL will
+                 * contain the "ReturnUrl" parameter.
+                 * 
+                 * Use the "ReturnUrl" parameter from the URL to identify
+                 * it as an unauthorized but authenticated request. 
+                 */
+                if (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                {
+                    // This is an unauthorized, authenticated request...
+                    Response.Redirect("/unauthorized_access");
+                }
+                else
+                {
+                    // If authenticated but tried to access the login page again
+                    // Redirect back to homepage
+                    Response.Redirect("/");
+                }
+            }
         }
 
         protected void studentLoginBtn_Click(object sender, EventArgs e)
