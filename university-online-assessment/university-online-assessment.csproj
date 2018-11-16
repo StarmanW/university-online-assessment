@@ -207,7 +207,7 @@
     <Content Include="Views\Admin\RegisterLecturer.aspx" />
     <Content Include="Views\Homepage.aspx" />
     <Content Include="Views\Login.aspx" />
-    <Content Include="Views\Anonymous\RegisterStudent.aspx" />
+    <Content Include="Views\Admin\RegisterStudent.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -264,10 +264,16 @@
     <Compile Include="Models\Assessment.cs">
       <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enrollment.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Lecturer_Assessment.cs">
       <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lecturer_Profile.cs">
+      <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Programme.cs">
       <DependentUpon>UniversityOnlineAssessmentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Question.cs">
@@ -329,24 +335,24 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Anonymous\RegisterStudent.aspx.cs">
+    <Compile Include="Views\Admin\RegisterStudent.aspx.cs">
       <DependentUpon>RegisterStudent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Anonymous\RegisterStudent.aspx.designer.cs">
+    <Compile Include="Views\Admin\RegisterStudent.aspx.designer.cs">
       <DependentUpon>RegisterStudent.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image_Storage\" />
     <Folder Include="Views\Errors\" />
+    <Folder Include="Views\Lecturer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Admin\Web.config" />
-    <Content Include="Views\Anonymous\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -18,6 +18,7 @@ namespace university_online_assessment.Models
         public aspnet_Users()
         {
             this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
+            this.Enrollment = new HashSet<Enrollment>();
             this.Lecturer_Assessment = new HashSet<Lecturer_Assessment>();
             this.Student_Answer = new HashSet<Student_Answer>();
             this.Student_Assessment = new HashSet<Student_Assessment>();
@@ -37,6 +38,8 @@ namespace university_online_assessment.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
         public virtual aspnet_Profile aspnet_Profile { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Enrollment> Enrollment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lecturer_Assessment> Lecturer_Assessment { get; set; }
         public virtual Lecturer_Profile Lecturer_Profile { get; set; }

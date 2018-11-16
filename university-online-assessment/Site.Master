@@ -106,8 +106,12 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/">Home</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/register/lecturer">Register Lecturer</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="registerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</a>
+                                        <div class="dropdown-menu" aria-labelledby="registerDropdown">
+                                            <a class="dropdown-item" href="/register/lecturer">Register Lecturer</a>
+                                            <a class="dropdown-item" href="/register/student">Register Student</a>
+                                        </div>
                                     </li>
                                 </ul>
                                 <ul class="navbar-nav ml-auto">
@@ -129,9 +133,6 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/register/student">Register Student</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto">

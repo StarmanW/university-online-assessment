@@ -131,6 +131,7 @@
     <NavigationProperty Name="aspnet_Membership" Relationship="Self.FK__aspnet_Me__UserI__3B75D760" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
     <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="Self.FK__aspnet_Pe__UserI__76969D2E" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
     <NavigationProperty Name="aspnet_Profile" Relationship="Self.FK__aspnet_Pr__UserI__4F7CD00D" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="Enrollment" Relationship="Self.FK_Enrollment_To_aspnet_Users" FromRole="aspnet_Users" ToRole="Enrollment" />
     <NavigationProperty Name="Lecturer_Assessment" Relationship="Self.FK_Lecturer_Assessment_aspnet_Users" FromRole="aspnet_Users" ToRole="Lecturer_Assessment" />
     <NavigationProperty Name="Lecturer_Profile" Relationship="Self.FK_Lecturer_Profile_To_aspnet_Users" FromRole="aspnet_Users" ToRole="Lecturer_Profile" />
     <NavigationProperty Name="Student_Answer" Relationship="Self.FK_Student_aspnet_Users" FromRole="aspnet_Users" ToRole="Student_Answer" />
@@ -170,6 +171,17 @@
     <NavigationProperty Name="Question" Relationship="Self.FK_Question_Assessment" FromRole="Assessment" ToRole="Question" />
     <NavigationProperty Name="Student_Assessment" Relationship="Self.FK_Student_Assessment_Assessment" FromRole="Assessment" ToRole="Student_Assessment" />
   </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="studId" Type="Guid" Nullable="false" />
+    <Property Name="progId" Type="Guid" Nullable="false" />
+    <Property Name="enrollmentDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Enrollment_To_aspnet_Users" FromRole="Enrollment" ToRole="aspnet_Users" />
+    <NavigationProperty Name="Programme" Relationship="Self.FK_Enrollment_To_Programme" FromRole="Enrollment" ToRole="Programme" />
+  </EntityType>
   <EntityType Name="Lecturer_Assessment">
     <Key>
       <PropertyRef Name="Id" />
@@ -194,6 +206,16 @@
     <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="faculty" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Lecturer_Profile_To_aspnet_Users" FromRole="Lecturer_Profile" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="Programme">
+    <Key>
+      <PropertyRef Name="progId" />
+    </Key>
+    <Property Name="progId" Type="Guid" Nullable="false" />
+    <Property Name="progName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="faculty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Enrollment" Relationship="Self.FK_Enrollment_To_Programme" FromRole="Programme" ToRole="Enrollment" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_Subject_Programme" FromRole="Programme" ToRole="Subject" />
   </EntityType>
   <EntityType Name="Question">
     <Key>
@@ -250,7 +272,9 @@
     <Property Name="Id" Type="Guid" Nullable="false" />
     <Property Name="subjectName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="creditHours" Type="Int32" Nullable="false" />
+    <Property Name="progId" Type="Guid" />
     <NavigationProperty Name="Assessment" Relationship="Self.FK_Assessment_Subject" FromRole="Subject" ToRole="Assessment" />
+    <NavigationProperty Name="Programme" Relationship="Self.FK_Subject_Programme" FromRole="Subject" ToRole="Programme" />
   </EntityType>
   <Association Name="FK_Answer_Question">
     <End Role="Question" Type="Self.Question" Multiplicity="1" />
@@ -372,6 +396,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Enrollment_To_aspnet_Users">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="studId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Lecturer_Assessment_aspnet_Users">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="Lecturer_Assessment" Type="Self.Lecturer_Assessment" Multiplicity="*" />
@@ -480,6 +516,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Enrollment_To_Programme">
+    <End Role="Programme" Type="Self.Programme" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programme">
+        <PropertyRef Name="progId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="progId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subject_Programme">
+    <End Role="Programme" Type="Self.Programme" Multiplicity="0..1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programme">
+        <PropertyRef Name="progId" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="progId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Student_Answer_Question">
     <End Role="Question" Type="Self.Question" Multiplicity="1" />
     <End Role="Student_Answer" Type="Self.Student_Answer" Multiplicity="0..1" />
@@ -509,8 +569,10 @@
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" />
     <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" />
     <EntitySet Name="Assessment" EntityType="Self.Assessment" />
+    <EntitySet Name="Enrollment" EntityType="Self.Enrollment" />
     <EntitySet Name="Lecturer_Assessment" EntityType="Self.Lecturer_Assessment" />
     <EntitySet Name="Lecturer_Profile" EntityType="Self.Lecturer_Profile" />
+    <EntitySet Name="Programme" EntityType="Self.Programme" />
     <EntitySet Name="Question" EntityType="Self.Question" />
     <EntitySet Name="Student_Answer" EntityType="Self.Student_Answer" />
     <EntitySet Name="Student_Assessment" EntityType="Self.Student_Assessment" />
@@ -556,6 +618,10 @@
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
     </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_To_aspnet_Users" Association="Self.FK_Enrollment_To_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
     <AssociationSet Name="FK_Lecturer_Assessment_aspnet_Users" Association="Self.FK_Lecturer_Assessment_aspnet_Users">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="Lecturer_Assessment" EntitySet="Lecturer_Assessment" />
@@ -591,6 +657,14 @@
     <AssociationSet Name="FK_Student_Assessment_Assessment" Association="Self.FK_Student_Assessment_Assessment">
       <End Role="Assessment" EntitySet="Assessment" />
       <End Role="Student_Assessment" EntitySet="Student_Assessment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_To_Programme" Association="Self.FK_Enrollment_To_Programme">
+      <End Role="Programme" EntitySet="Programme" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subject_Programme" Association="Self.FK_Subject_Programme">
+      <End Role="Programme" EntitySet="Programme" />
+      <End Role="Subject" EntitySet="Subject" />
     </AssociationSet>
     <AssociationSet Name="FK_Student_Answer_Question" Association="Self.FK_Student_Answer_Question">
       <End Role="Question" EntitySet="Question" />

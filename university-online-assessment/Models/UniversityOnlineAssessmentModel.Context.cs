@@ -37,8 +37,10 @@ namespace university_online_assessment.Models
         public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
         public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
         public virtual DbSet<Assessment> Assessment { get; set; }
+        public virtual DbSet<Enrollment> Enrollment { get; set; }
         public virtual DbSet<Lecturer_Assessment> Lecturer_Assessment { get; set; }
         public virtual DbSet<Lecturer_Profile> Lecturer_Profile { get; set; }
+        public virtual DbSet<Programme> Programme { get; set; }
         public virtual DbSet<Question> Question { get; set; }
         public virtual DbSet<Student_Answer> Student_Answer { get; set; }
         public virtual DbSet<Student_Assessment> Student_Assessment { get; set; }

@@ -148,6 +148,15 @@
     <Property Name="subject" Type="uniqueidentifier" Nullable="false" />
     <Property Name="type" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="studId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="progId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="enrollmentDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Lecturer_Assessment">
     <Key>
       <PropertyRef Name="Id" />
@@ -169,6 +178,14 @@
     <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="faculty" Type="varchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Programme">
+    <Key>
+      <PropertyRef Name="progId" />
+    </Key>
+    <Property Name="progId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="progName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="Question">
     <Key>
@@ -217,6 +234,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="subjectName" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="creditHours" Type="int" Nullable="false" />
+    <Property Name="progId" Type="uniqueidentifier" />
   </EntityType>
   <Association Name="FK__aspnet_Me__Appli__3A81B327">
     <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
@@ -374,6 +392,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Enrollment_To_aspnet_Users">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="studId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_To_Programme">
+    <End Role="Programme" Type="Self.Programme" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programme">
+        <PropertyRef Name="progId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="progId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Lecturer_Assessment_aspnet_Users">
     <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
     <End Role="Lecturer_Assessment" Type="Self.Lecturer_Assessment" Multiplicity="*" />
@@ -482,6 +524,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Subject_Programme">
+    <End Role="Programme" Type="Self.Programme" Multiplicity="0..1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programme">
+        <PropertyRef Name="progId" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="progId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="OnlineAssessmentDBModelStoreContainer">
     <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
@@ -496,8 +550,10 @@
     <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Assessment" EntityType="Self.Assessment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lecturer_Assessment" EntityType="Self.Lecturer_Assessment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lecturer_Profile" EntityType="Self.Lecturer_Profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programme" EntityType="Self.Programme" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Answer" EntityType="Self.Student_Answer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student_Assessment" EntityType="Self.Student_Assessment" Schema="dbo" store:Type="Tables" />
@@ -555,6 +611,14 @@
       <End Role="Subject" EntitySet="Subject" />
       <End Role="Assessment" EntitySet="Assessment" />
     </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_To_aspnet_Users" Association="Self.FK_Enrollment_To_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_To_Programme" Association="Self.FK_Enrollment_To_Programme">
+      <End Role="Programme" EntitySet="Programme" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
     <AssociationSet Name="FK_Lecturer_Assessment_aspnet_Users" Association="Self.FK_Lecturer_Assessment_aspnet_Users">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="Lecturer_Assessment" EntitySet="Lecturer_Assessment" />
@@ -590,6 +654,10 @@
     <AssociationSet Name="FK_Student_Profile_To_aspnet_Users" Association="Self.FK_Student_Profile_To_aspnet_Users">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="Student_Profile" EntitySet="Student_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subject_Programme" Association="Self.FK_Subject_Programme">
+      <End Role="Programme" EntitySet="Programme" />
+      <End Role="Subject" EntitySet="Subject" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

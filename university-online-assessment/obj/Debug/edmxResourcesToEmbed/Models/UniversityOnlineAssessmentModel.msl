@@ -152,6 +152,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Enrollment">
+      <EntityTypeMapping TypeName="OnlineAssessmentDBModel.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="studId" ColumnName="studId" />
+          <ScalarProperty Name="progId" ColumnName="progId" />
+          <ScalarProperty Name="enrollmentDateTime" ColumnName="enrollmentDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Lecturer_Assessment">
       <EntityTypeMapping TypeName="OnlineAssessmentDBModel.Lecturer_Assessment">
         <MappingFragment StoreEntitySet="Lecturer_Assessment">
@@ -172,6 +182,15 @@
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="contactNo" ColumnName="contactNo" />
           <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programme">
+      <EntityTypeMapping TypeName="OnlineAssessmentDBModel.Programme">
+        <MappingFragment StoreEntitySet="Programme">
+          <ScalarProperty Name="progId" ColumnName="progId" />
+          <ScalarProperty Name="progName" ColumnName="progName" />
           <ScalarProperty Name="faculty" ColumnName="faculty" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -226,6 +245,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="subjectName" ColumnName="subjectName" />
           <ScalarProperty Name="creditHours" ColumnName="creditHours" />
+          <ScalarProperty Name="progId" ColumnName="progId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
