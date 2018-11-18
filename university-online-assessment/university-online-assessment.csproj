@@ -205,9 +205,13 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Views\Admin\RegisterLecturer.aspx" />
+    <Content Include="Views\Admin\RegisterSubject.aspx" />
+    <Content Include="Views\Error\404.aspx" />
+    <Content Include="Views\Error\Generic.aspx" />
     <Content Include="Views\Homepage.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Admin\RegisterStudent.aspx" />
+    <Content Include="Views\UnauthorizedAccess.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -321,6 +325,27 @@
     <Compile Include="Views\Admin\RegisterLecturer.aspx.designer.cs">
       <DependentUpon>RegisterLecturer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\RegisterSubject.aspx.cs">
+      <DependentUpon>RegisterSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\RegisterSubject.aspx.designer.cs">
+      <DependentUpon>RegisterSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Error\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Error\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Error\Generic.aspx.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Error\Generic.aspx.designer.cs">
+      <DependentUpon>Generic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,10 +367,16 @@
     <Compile Include="Views\Admin\RegisterStudent.aspx.designer.cs">
       <DependentUpon>RegisterStudent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\UnauthorizedAccess.aspx.cs">
+      <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UnauthorizedAccess.aspx.designer.cs">
+      <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image_Storage\" />
-    <Folder Include="Views\Errors\" />
     <Folder Include="Views\Lecturer\" />
   </ItemGroup>
   <ItemGroup>

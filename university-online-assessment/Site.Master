@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="university_online_assessment.SiteMaster" %>
+﻿<%@ Master Language="C#" EnableViewState="true" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="university_online_assessment.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -111,6 +111,7 @@
                                         <div class="dropdown-menu" aria-labelledby="registerDropdown">
                                             <a class="dropdown-item" href="/register/lecturer">Register Lecturer</a>
                                             <a class="dropdown-item" href="/register/student">Register Student</a>
+                                            <a class="dropdown-item" href="/register/subject">Register Subject</a>
                                         </div>
                                     </li>
                                 </ul>

@@ -14,6 +14,10 @@ namespace university_online_assessment
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
 
+            // Error/Not Found routes
+            routes.MapPageRoute("GenericError", "Error", "~/Views/Error/Generic.aspx");
+            routes.MapPageRoute("404Error", "404", "~/Views/Error/404.aspx");
+
             // Main homepage route
             routes.MapPageRoute("MainHomepage", "", "~/Views/Homepage.aspx");
             routes.MapPageRoute("LoginPage", "login", "~/Views/Login.aspx");
@@ -21,6 +25,7 @@ namespace university_online_assessment
             // Admin route
             routes.MapPageRoute("RegisterStudent", "register/student", "~/Views/Admin/RegisterStudent.aspx");
             routes.MapPageRoute("RegisterLecturer", "register/lecturer", "~/Views/Admin/RegisterLecturer.aspx");
+            routes.MapPageRoute("RegisterSubject", "register/subject", "~/Views/Admin/RegisterSubject.aspx");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterLecturer.aspx.cs" Inherits="university_online_assessment.Views.Admin.RegisterLecturer" %>
+﻿<%@ Page Title="Register New Lecturer" EnableViewState="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterLecturer.aspx.cs" Inherits="university_online_assessment.Views.Admin.RegisterLecturer" %>
 
 <asp:Content ID="RegisterLecturerMainContent" ContentPlaceHolderID="MainContent" runat="server">
     <section id="registerLecturerSection" class="bg-dark">
@@ -114,18 +114,16 @@
                                 <label for="faculty">Faculty</label>
                                 <asp:DropDownList runat="server" ID="faculty" CssClass="form-control" SelectedValue='<%# Bind("faculty") %>'>
                                     <asp:ListItem Value="" Selected="True" Text="Select Programme" disabled="disabled" />
-                                    <asp:ListItem Value="RSD" Text="Bachelor of Information Technology - Software Systems Development" />
-                                    <asp:ListItem Value="RIT" Text="Bachelor of Information Technology - Internet Technology" />
-                                    <asp:ListItem Value="RIS" Text="Bachelor of Information Technology - Information Security" />
-                                    <asp:ListItem Value="RAC" Text="Bachelor of Communication & Creative Industries - Advertising" />
-                                    <asp:ListItem Value="RPR" Text="Bachelor of Communication & Creative Industries - Public Relations" />
-                                    <asp:ListItem Value="RBC" Text="Bachelor of Communication & Creative Industries - Broadcasting" />
-                                    <asp:ListItem Value="RMA" Text="Bachelor of Accountancy, Finance & Business - Marketing" />
-                                    <asp:ListItem Value="RBA" Text="Bachelor of Accountancy, Finance & Business - Business Administration" />
-                                    <asp:ListItem Value="RAA" Text="Bachelor of Accountancy, Finance & Business - Accounting" />
+                                    <asp:ListItem Value="FOCS" Text="Faculty of Computing And Information Technology [FOCS]" />
+                                    <asp:ListItem Value="FAFB" Text="Faculty of Accountancy, Finance And Business [FAFB]" />
+                                    <asp:ListItem Value="FOAS" Text="Faculty of Applied Sciences [FOAS]" />
+                                    <asp:ListItem Value="FOBE" Text="Faculty of Built Environment [FOBE]" />
+                                    <asp:ListItem Value="FCCI" Text="Faculty of Communication And Creative Industries [FCCI]" />
+                                    <asp:ListItem Value="FOET" Text="Faculty of Engineering And Technology [FOET]" />
+                                    <asp:ListItem Value="FSSH" Text="Faculty of Social Science And Humanities [FSSH]" />
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="faculty" Display="Dynamic" ErrorMessage="Please ensure the faculty is selected."></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="faculty" Display="Dynamic" ErrorMessage="Please select the correct faculty." ValidationExpression="^(FOCS|FAFB)$"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="faculty" Display="Dynamic" ErrorMessage="Please select the correct faculty." ValidationExpression="^(FOCS|FAFB|FOAS|FOBE|FCCI|FOET|FSSH)$"></asp:RegularExpressionValidator>
                             </div>
 
                             <%--Address--%>
@@ -152,7 +150,6 @@
         </div>
     </section>
 
-    <script src="../Assets/js/script.js"></script>
     <script type="text/javascript">
         document.querySelectorAll('input[type="radio"]').forEach((elem) => {
             elem.classList.add('form-check-input');

@@ -16,6 +16,7 @@ namespace university_online_assessment
         {
             // Call initialization methods
             initApplicationRoles();
+            initProgrammeDatabase();
             initSubjectDatabase();
             initAdminAccount();
 
@@ -48,6 +49,54 @@ namespace university_online_assessment
         }
 
         /**
+         * Private method for initializing
+         * aspnet_Roles table in database
+         */
+        private void initProgrammeDatabase()
+        {
+            // Declare programmes for this application
+            string[] programmes = {
+                "[FOCS] Bachelor of Information Technology - Software Systems Development (RSD)",
+                "[FOCS] Bachelor of Information Technology - Internet Technology (RIT)",
+                "[FCCI] Bachelor of Communication & Creative Industries - Advertising (RAC)",
+                "[FCCI] Bachelor of Communication & Creative Industries - Broadcasting (RBC)",
+                "[FAFB] Bachelor of Accountancy, Finance & Business - Marketing (RMA)",
+                "[FAFB] Bachelor of Accountancy, Finance & Business - Accounting (RAA)",
+            };
+
+            /**
+            * Temporarily use db connection to insert the programmes
+            */
+            using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
+            {
+                // Loop through each prog and create them 
+                foreach (string prog in programmes)
+                {
+                    // Check if the subject already exist in database
+                    if (db.Programme.Where(s => s.progName == prog).FirstOrDefault() is null)
+                    {
+                        try
+                        {
+                            // Create new Programme object
+                            Programme newProg = new Programme();
+                            newProg.progId = Guid.NewGuid();
+                            newProg.progName = prog;
+                            newProg.faculty = prog.Substring(1, 4);
+
+                            // Save the new programme into database
+                            db.Programme.Add(newProg);
+                            db.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception($"An exception occured when inserting programme: {ex.Message}");
+                        }
+                    }
+                }
+            }
+        }
+
+        /**
          * Private method for creating an
          * admin account.
          */
@@ -75,8 +124,16 @@ namespace university_online_assessment
                 "BACS2063 Data Structures & Algorithms",
                 "BAIT2164 Computer Networks",
                 "BAIT2113 Web Application Development",
-                "BACS2163 Software Engineering",
-                "BAIT3343 Agile Software Development"
+                "AACA2132 Financial Accounting",
+                "AACA3232 Principles of Finance",
+                "AACA3431 Fundamentals of Auditing",
+                "AACA2322 Pricing Strategy",
+                "ADMK2563 Digital Marketing",
+                "ADMK3262 Principles of Marketing",
+                "ACHC2362 Production and Multimedia",
+                "ACHC2342 Television Production",
+                "ABCI2423 Advanced Photography",
+                "ABCC2212 Consumer Behaviour and Culture",
             };
 
             /**

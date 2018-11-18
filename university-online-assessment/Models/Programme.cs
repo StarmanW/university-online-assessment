@@ -18,6 +18,7 @@ namespace university_online_assessment.Models
         public Programme()
         {
             this.Enrollment = new HashSet<Enrollment>();
+            this.Student_Profile = new HashSet<Student_Profile>();
             this.Subject = new HashSet<Subject>();
         }
     
@@ -27,6 +28,8 @@ namespace university_online_assessment.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student_Profile> Student_Profile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subject> Subject { get; set; }
     }

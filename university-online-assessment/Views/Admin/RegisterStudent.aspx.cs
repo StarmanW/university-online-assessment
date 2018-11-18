@@ -13,7 +13,16 @@ namespace university_online_assessment.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DropDownList programme = registerStudentForm.FindControl("programme") as DropDownList;
 
+            using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
+            {
+                List<Programme> progs = db.Programme.ToList();
+                foreach (var prog in progs)
+                {
+                    programme.Items.Add(new ListItem(prog.progName, prog.progId.ToString()));
+                }
+            }
         }
 
         public void addNewStudent()
@@ -41,7 +50,14 @@ namespace university_online_assessment.Views
                         // Connect to database to add new staff profile
                         using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
                         {
+                            Enrollment newEnrollment = new Enrollment();
+                            newEnrollment.Id = Guid.NewGuid();
+                            newEnrollment.studId = student.Id;
+                            newEnrollment.progId = student.programme;
+                            newEnrollment.enrollmentDateTime = DateTime.Now;
+
                             // Add the new staff and save it
+                            db.Enrollment.Add(newEnrollment);
                             db.Student_Profile.Add(student);
                             db.SaveChanges();
 

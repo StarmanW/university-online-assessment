@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="university_online_assessment.Views.Login" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="LoginContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <script type="text/javascript">
         // JS scripts for remembering previously active tab

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterStudent.aspx.cs" Inherits="university_online_assessment.Views.RegisterStudent" %>
+﻿<%@ Page Title="Register New Student" EnableViewState="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterStudent.aspx.cs" Inherits="university_online_assessment.Views.RegisterStudent" %>
 
 <asp:Content ID="RegisterStudentMainContent" ContentPlaceHolderID="MainContent" runat="server">
     <section id="registerStudSection" class="bg-dark">
@@ -113,19 +113,8 @@
                             <div class="form-group">
                                 <label for="programme">Programme</label>
                                 <asp:DropDownList runat="server" ID="programme" CssClass="form-control" SelectedValue='<%# Bind("programme") %>'>
-                                    <asp:ListItem Value="" Selected="True" Text="Select Programme" disabled="disabled" />
-                                    <asp:ListItem Value="RSD" Text="Bachelor of Information Technology - Software Systems Development" />
-                                    <asp:ListItem Value="RIT" Text="Bachelor of Information Technology - Internet Technology" />
-                                    <asp:ListItem Value="RIS" Text="Bachelor of Information Technology - Information Security" />
-                                    <asp:ListItem Value="RAC" Text="Bachelor of Communication & Creative Industries - Advertising" />
-                                    <asp:ListItem Value="RPR" Text="Bachelor of Communication & Creative Industries - Public Relations" />
-                                    <asp:ListItem Value="RBC" Text="Bachelor of Communication & Creative Industries - Broadcasting" />
-                                    <asp:ListItem Value="RMA" Text="Bachelor of Accountancy, Finance & Business - Marketing" />
-                                    <asp:ListItem Value="RBA" Text="Bachelor of Accountancy, Finance & Business - Business Administration" />
-                                    <asp:ListItem Value="RAA" Text="Bachelor of Accountancy, Finance & Business - Accounting" />
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="programme" Display="Dynamic" ErrorMessage="Please ensure the programme is selected."></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="programme" Display="Dynamic" ErrorMessage="Please select the correct programme." ValidationExpression="^(RSD|RIT|RIS|RAC|RPR|RBC|RMA|RBA|RAA)$"></asp:RegularExpressionValidator>
                             </div>
                             
                             <%--Address--%>
@@ -152,7 +141,6 @@
         </div>
     </section>
 
-    <script src="../Assets/js/script.js"></script>
     <script type="text/javascript">
         document.querySelectorAll('input[type="radio"]').forEach((elem) => {
             elem.classList.add('form-check-input');

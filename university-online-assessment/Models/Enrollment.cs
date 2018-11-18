@@ -14,7 +14,7 @@ namespace university_online_assessment.Models
     
     public partial class Enrollment
     {
-        public int Id { get; set; }
+        public System.Guid Id { get; set; }
         public System.Guid studId { get; set; }
         public System.Guid progId { get; set; }
         public System.DateTime enrollmentDateTime { get; set; }
