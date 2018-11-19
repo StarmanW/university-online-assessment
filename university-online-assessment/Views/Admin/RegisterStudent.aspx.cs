@@ -35,6 +35,7 @@ namespace university_online_assessment.Views
                     TextBox studId = registerStudentForm.FindControl("studId") as TextBox;
                     TextBox password = registerStudentForm.FindControl("password_confirmation") as TextBox;
                     TextBox email = registerStudentForm.FindControl("email") as TextBox;
+                    DropDownList programme = registerStudentForm.FindControl("programme") as DropDownList;
 
                     // First create the user membership
                     MembershipUser newStudent = Membership.CreateUser(studId.Text, password.Text, email.Text);
@@ -50,10 +51,11 @@ namespace university_online_assessment.Views
                         // Connect to database to add new staff profile
                         using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
                         {
+                            // Create the enrollment records for the new student
                             Enrollment newEnrollment = new Enrollment();
                             newEnrollment.Id = Guid.NewGuid();
                             newEnrollment.studId = student.Id;
-                            newEnrollment.progId = student.programme;
+                            newEnrollment.progId = Guid.Parse(programme.SelectedItem.Value);
                             newEnrollment.enrollmentDateTime = DateTime.Now;
 
                             // Add the new staff and save it

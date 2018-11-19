@@ -26,6 +26,7 @@ namespace university_online_assessment
             routes.MapPageRoute("RegisterStudent", "register/student", "~/Views/Admin/RegisterStudent.aspx");
             routes.MapPageRoute("RegisterLecturer", "register/lecturer", "~/Views/Admin/RegisterLecturer.aspx");
             routes.MapPageRoute("RegisterSubject", "register/subject", "~/Views/Admin/RegisterSubject.aspx");
+            routes.MapPageRoute("ViewLists", "admin/list", "~/Views/Admin/ViewList.aspx");
         }
     }
 }

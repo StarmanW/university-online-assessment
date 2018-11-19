@@ -13,6 +13,33 @@ namespace university_online_assessment.Views.Admin {
     public partial class ViewLecturerList {
         
         /// <summary>
+        /// displayStudGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView displayStudGrid;
+        
+        /// <summary>
+        /// displayProgGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView displayProgGrid;
+        
+        /// <summary>
+        /// displayLectGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView displayLectGrid;
+        
+        /// <summary>
         /// hfTab control.
         /// </summary>
         /// <remarks>

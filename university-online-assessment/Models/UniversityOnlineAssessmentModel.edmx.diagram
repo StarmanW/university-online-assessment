@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9ab1c56a64144996898c4bfafc04678c" Name="Diagram1">
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Answer" Width="1.5" PointX="13.5" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Membership" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Paths" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Roles" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+      <Diagram DiagramId="357b7bc51ed144649e1ecd5a573ad96f" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Answer" Width="1.5" PointX="13.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Membership" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Paths" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Roles" Width="1.5" PointX="3" PointY="25.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="20.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineAssessmentDBModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Assessment" Width="1.5" PointX="9" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Enrollment" Width="1.5" PointX="10.5" PointY="23.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Lecturer_Assessment" Width="1.5" PointX="13.5" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Lecturer_Profile" Width="1.5" PointX="10.5" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Programme" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Question" Width="1.5" PointX="11.25" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Student_Answer" Width="1.5" PointX="13.5" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Student_Assessment" Width="1.5" PointX="13.5" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Student_Profile" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Subject" Width="1.5" PointX="6.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Assessment" Width="1.5" PointX="9" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Enrollment" Width="1.5" PointX="10.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Lecturer_Assessment" Width="1.5" PointX="13.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Lecturer_Profile" Width="1.5" PointX="10.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Programme" Width="1.5" PointX="4.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Question" Width="1.5" PointX="11.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Student_Answer" Width="1.5" PointX="13.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Student_Assessment" Width="1.5" PointX="13.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Student_Profile" Width="1.5" PointX="10.5" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineAssessmentDBModel.Subject" Width="1.5" PointX="6.75" PointY="9.5" IsExpanded="true" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK_Answer_Question" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK__aspnet_Me__Appli__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK__aspnet_Pa__Appli__6C190EBB" ManuallyRouted="false" />
@@ -47,7 +47,6 @@
         <AssociationConnector Association="OnlineAssessmentDBModel.FK_Question_Assessment" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK_Student_Assessment_Assessment" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK_Enrollment_To_Programme" ManuallyRouted="false" />
-        <AssociationConnector Association="OnlineAssessmentDBModel.FK_Student_Profile_To_Programme" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK_Subject_Programme" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.FK_Student_Answer_Question" ManuallyRouted="false" />
         <AssociationConnector Association="OnlineAssessmentDBModel.aspnet_UsersInRoles" ManuallyRouted="false" />

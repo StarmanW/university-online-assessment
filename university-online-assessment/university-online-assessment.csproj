@@ -206,9 +206,13 @@
     <Content Include="Site.Master" />
     <Content Include="Views\Admin\RegisterLecturer.aspx" />
     <Content Include="Views\Admin\RegisterSubject.aspx" />
+    <Content Include="Views\Admin\ViewList.aspx" />
     <Content Include="Views\Error\404.aspx" />
     <Content Include="Views\Error\Generic.aspx" />
     <Content Include="Views\Homepage.aspx" />
+    <Content Include="Views\Lecturer\CreateQuestion.aspx" />
+    <Content Include="Views\Lecturer\PreCreateQuestion.aspx" />
+    <Content Include="Views\Lecturer\ViewList.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Admin\RegisterStudent.aspx" />
     <Content Include="Views\UnauthorizedAccess.aspx" />
@@ -332,6 +336,13 @@
     <Compile Include="Views\Admin\RegisterSubject.aspx.designer.cs">
       <DependentUpon>RegisterSubject.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\ViewList.aspx.cs">
+      <DependentUpon>ViewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ViewList.aspx.designer.cs">
+      <DependentUpon>ViewList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Error\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,6 +363,27 @@
     </Compile>
     <Compile Include="Views\Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lecturer\CreateQuestion.aspx.cs">
+      <DependentUpon>CreateQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Lecturer\CreateQuestion.aspx.designer.cs">
+      <DependentUpon>CreateQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lecturer\PreCreateQuestion.aspx.cs">
+      <DependentUpon>PreCreateQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Lecturer\PreCreateQuestion.aspx.designer.cs">
+      <DependentUpon>PreCreateQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lecturer\ViewList.aspx.cs">
+      <DependentUpon>ViewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Lecturer\ViewList.aspx.designer.cs">
+      <DependentUpon>ViewList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -377,7 +409,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image_Storage\" />
-    <Folder Include="Views\Lecturer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

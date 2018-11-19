@@ -22,9 +22,7 @@ namespace university_online_assessment.Models
         public string gender { get; set; }
         public string contactNo { get; set; }
         public string address { get; set; }
-        public System.Guid programme { get; set; }
     
         public virtual aspnet_Users aspnet_Users { get; set; }
-        public virtual Programme Programme1 { get; set; }
     }
 }

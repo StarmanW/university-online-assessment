@@ -235,7 +235,6 @@
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="contactNo" ColumnName="contactNo" />
           <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="programme" ColumnName="programme" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

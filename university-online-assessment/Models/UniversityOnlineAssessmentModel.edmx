@@ -157,7 +157,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="studId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="progId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="enrollmentDateTime" Type="datetime" Nullable="false" />
@@ -230,7 +230,6 @@
           <Property Name="gender" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="programme" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -529,18 +528,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Profile_To_Programme">
-          <End Role="Programme" Type="Self.Programme" Multiplicity="1" />
-          <End Role="Student_Profile" Type="Self.Student_Profile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Programme">
-              <PropertyRef Name="progId" />
-            </Principal>
-            <Dependent Role="Student_Profile">
-              <PropertyRef Name="programme" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Subject_Programme">
           <End Role="Programme" Type="Self.Programme" Multiplicity="0..1" />
           <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
@@ -670,10 +657,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Student_Profile_To_aspnet_Users" Association="Self.FK_Student_Profile_To_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="Student_Profile" EntitySet="Student_Profile" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Profile_To_Programme" Association="Self.FK_Student_Profile_To_Programme">
-            <End Role="Programme" EntitySet="Programme" />
             <End Role="Student_Profile" EntitySet="Student_Profile" />
           </AssociationSet>
           <AssociationSet Name="FK_Subject_Programme" Association="Self.FK_Subject_Programme">
@@ -861,7 +844,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="studId" Type="Guid" Nullable="false" />
           <Property Name="progId" Type="Guid" Nullable="false" />
           <Property Name="enrollmentDateTime" Type="DateTime" Nullable="false" Precision="3" />
@@ -901,7 +884,6 @@
           <Property Name="progName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="faculty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Enrollment" Relationship="Self.FK_Enrollment_To_Programme" FromRole="Programme" ToRole="Enrollment" />
-          <NavigationProperty Name="Student_Profile" Relationship="Self.FK_Student_Profile_To_Programme" FromRole="Programme" ToRole="Student_Profile" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Subject_Programme" FromRole="Programme" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Question">
@@ -949,9 +931,7 @@
           <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="contactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="programme" Type="Guid" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Student_Profile_To_aspnet_Users" FromRole="Student_Profile" ToRole="aspnet_Users" />
-          <NavigationProperty Name="Programme1" Relationship="Self.FK_Student_Profile_To_Programme" FromRole="Student_Profile" ToRole="Programme" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -1216,18 +1196,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Profile_To_Programme">
-          <End Role="Programme" Type="Self.Programme" Multiplicity="1" />
-          <End Role="Student_Profile" Type="Self.Student_Profile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Programme">
-              <PropertyRef Name="progId" />
-            </Principal>
-            <Dependent Role="Student_Profile">
-              <PropertyRef Name="programme" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Subject_Programme">
           <End Role="Programme" Type="Self.Programme" Multiplicity="0..1" />
           <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
@@ -1361,10 +1329,6 @@
           <AssociationSet Name="FK_Enrollment_To_Programme" Association="Self.FK_Enrollment_To_Programme">
             <End Role="Programme" EntitySet="Programme" />
             <End Role="Enrollment" EntitySet="Enrollment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Profile_To_Programme" Association="Self.FK_Student_Profile_To_Programme">
-            <End Role="Programme" EntitySet="Programme" />
-            <End Role="Student_Profile" EntitySet="Student_Profile" />
           </AssociationSet>
           <AssociationSet Name="FK_Subject_Programme" Association="Self.FK_Subject_Programme">
             <End Role="Programme" EntitySet="Programme" />
@@ -1619,7 +1583,6 @@
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="contactNo" ColumnName="contactNo" />
                 <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="programme" ColumnName="programme" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

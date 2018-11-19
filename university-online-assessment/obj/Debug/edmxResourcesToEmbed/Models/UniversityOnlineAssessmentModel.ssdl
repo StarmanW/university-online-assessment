@@ -152,7 +152,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="studId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="progId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="enrollmentDateTime" Type="datetime" Nullable="false" />
@@ -225,7 +225,6 @@
     <Property Name="gender" Type="nchar" MaxLength="1" Nullable="false" />
     <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="programme" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Subject">
     <Key>
@@ -524,18 +523,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Student_Profile_To_Programme">
-    <End Role="Programme" Type="Self.Programme" Multiplicity="1" />
-    <End Role="Student_Profile" Type="Self.Student_Profile" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programme">
-        <PropertyRef Name="progId" />
-      </Principal>
-      <Dependent Role="Student_Profile">
-        <PropertyRef Name="programme" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Subject_Programme">
     <End Role="Programme" Type="Self.Programme" Multiplicity="0..1" />
     <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
@@ -665,10 +652,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_Student_Profile_To_aspnet_Users" Association="Self.FK_Student_Profile_To_aspnet_Users">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-      <End Role="Student_Profile" EntitySet="Student_Profile" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Student_Profile_To_Programme" Association="Self.FK_Student_Profile_To_Programme">
-      <End Role="Programme" EntitySet="Programme" />
       <End Role="Student_Profile" EntitySet="Student_Profile" />
     </AssociationSet>
     <AssociationSet Name="FK_Subject_Programme" Association="Self.FK_Subject_Programme">

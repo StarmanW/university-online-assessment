@@ -112,7 +112,7 @@
                             <%--Programme--%>
                             <div class="form-group">
                                 <label for="programme">Programme</label>
-                                <asp:DropDownList runat="server" ID="programme" CssClass="form-control" SelectedValue='<%# Bind("programme") %>'>
+                                <asp:DropDownList runat="server" ID="programme" CssClass="form-control">
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="programme" Display="Dynamic" ErrorMessage="Please ensure the programme is selected."></asp:RequiredFieldValidator>
                             </div>
