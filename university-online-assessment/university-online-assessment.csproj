@@ -123,11 +123,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\booksBg.jpg" />
     <Content Include="Content\Images\citc2.png" />
     <Content Include="Content\Images\kelli-tungay-324329-unsplash.jpg" />
     <Content Include="Content\Images\tarc_logo.png" />
     <Content Include="Content\Site.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\UniversityOnlineAssessmentModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -204,15 +204,16 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="tarc_icon.ico" />
     <Content Include="Views\Admin\RegisterLecturer.aspx" />
     <Content Include="Views\Admin\RegisterSubject.aspx" />
-    <Content Include="Views\Admin\ViewList.aspx" />
+    <Content Include="Views\Admin\AdminViewList.aspx" />
     <Content Include="Views\Error\404.aspx" />
     <Content Include="Views\Error\Generic.aspx" />
     <Content Include="Views\Homepage.aspx" />
-    <Content Include="Views\Lecturer\CreateQuestion.aspx" />
-    <Content Include="Views\Lecturer\PreCreateQuestion.aspx" />
-    <Content Include="Views\Lecturer\ViewList.aspx" />
+    <Content Include="Views\Lecturer\CreateAssessment.aspx" />
+    <Content Include="Views\Lecturer\PreCreateAssessment.aspx" />
+    <Content Include="Views\Lecturer\LecturerViewList.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Admin\RegisterStudent.aspx" />
     <Content Include="Views\UnauthorizedAccess.aspx" />
@@ -336,12 +337,12 @@
     <Compile Include="Views\Admin\RegisterSubject.aspx.designer.cs">
       <DependentUpon>RegisterSubject.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\ViewList.aspx.cs">
-      <DependentUpon>ViewList.aspx</DependentUpon>
+    <Compile Include="Views\Admin\AdminViewList.aspx.cs">
+      <DependentUpon>AdminViewList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\ViewList.aspx.designer.cs">
-      <DependentUpon>ViewList.aspx</DependentUpon>
+    <Compile Include="Views\Admin\AdminViewList.aspx.designer.cs">
+      <DependentUpon>AdminViewList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Error\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
@@ -364,26 +365,26 @@
     <Compile Include="Views\Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Lecturer\CreateQuestion.aspx.cs">
-      <DependentUpon>CreateQuestion.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\CreateAssessment.aspx.cs">
+      <DependentUpon>CreateAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Lecturer\CreateQuestion.aspx.designer.cs">
-      <DependentUpon>CreateQuestion.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\CreateAssessment.aspx.designer.cs">
+      <DependentUpon>CreateAssessment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Lecturer\PreCreateQuestion.aspx.cs">
-      <DependentUpon>PreCreateQuestion.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\PreCreateAssessment.aspx.cs">
+      <DependentUpon>PreCreateAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Lecturer\PreCreateQuestion.aspx.designer.cs">
-      <DependentUpon>PreCreateQuestion.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\PreCreateAssessment.aspx.designer.cs">
+      <DependentUpon>PreCreateAssessment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Lecturer\ViewList.aspx.cs">
-      <DependentUpon>ViewList.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\LecturerViewList.aspx.cs">
+      <DependentUpon>LecturerViewList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Lecturer\ViewList.aspx.designer.cs">
-      <DependentUpon>ViewList.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\LecturerViewList.aspx.designer.cs">
+      <DependentUpon>LecturerViewList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

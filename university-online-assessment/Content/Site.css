@@ -1,8 +1,9 @@
 ﻿/*Insert custom css here*/
 #mainSection {
-    min-height:100vh;
+    min-height: 100vh;
 }
 
+#AdminListContent,
 #loginSection {
     min-height: 100vh;
     background: url("Images/citc2.png") no-repeat center center fixed;
@@ -10,16 +11,20 @@
 }
 
 /* Section style*/
-section#registerStudSection .container,
-section#registerSubjectSection .container,
-section#registerLecturerSection .container {
+#preCreateAssessmentSection .container,
+#createAssessmentSection .container, 
+#registerStudSection .container,
+#registerSubjectSection .container,
+#registerLecturerSection .container {
     min-height: 100vh;
     max-width: 800px;
 }
 
-section#registerStudSection,
-section#registerSubjectSection,
-section#registerLecturerSection {
+#createAssessmentSection,
+#preCreateAssessmentSection,
+#registerStudSection,
+#registerSubjectSection,
+#registerLecturerSection {
     background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
     background-size: cover;
 }
