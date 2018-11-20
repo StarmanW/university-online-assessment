@@ -31,13 +31,14 @@ namespace university_online_assessment
             // Lecturer route
             routes.MapPageRoute("PreCreateQuestion", "assessment/pre_create", "~/Views/Lecturer/PreCreateAssessment.aspx");
             routes.MapPageRoute("CreateQuestion", "assessment/create", "~/Views/Lecturer/CreateAssessment.aspx");
-            routes.MapPageRoute("LecturerViewList", "assessment/list", "~/Views/Lecturer/LecturerViewList.aspx");
+            routes.MapPageRoute("LecturerViewList", "lecturer/list", "~/Views/Lecturer/LecturerViewList.aspx");
+            routes.MapPageRoute("StudentAssessmentList", "lecturer/list/student/assessment", "~/Views/Lecturer/StudentAssessmentsList.aspx");
+            routes.MapPageRoute("MarkAssessmentList", "lecturer/list/assessment/mark", "~/Views/Lecturer/MarkAssessmentList.aspx");
+            routes.MapPageRoute("MarkStudentAssessment", "lecturer/list/assessment/student/mark", "~/Views/Lecturer/MarkStudentAssessment.aspx");
 
             // Student routes
             routes.MapPageRoute("StudentViewLists", "student/list", "~/Views/Student/StudentViewList.aspx");
             routes.MapPageRoute("StudentAssessment", "student/assessment", "~/Views/Student/StudentAssessment.aspx");
-            routes.MapPageRoute("LecturerViewList", "lecturer/list", "~/Views/Lecturer/LecturerViewList.aspx");
-            routes.MapPageRoute("StudentAssessmentList", "lecturer/list/student/assessment", "~/Views/Lecturer/StudentAssessmentsList.aspx");
         }
     }
 }

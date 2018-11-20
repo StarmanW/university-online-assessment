@@ -24,11 +24,11 @@
             </nav>
 
             <div class="tab-content table-responsive" id="nav-tabContent">
-
                 <%--Assessments Tab--%>
                 <div class="tab-pane fade show active" id="nav-assessments" role="tabpanel" aria-labelledby="nav-assessments-tab">
                     <h2 class="text-center pt-4">Assessments List</h2>
                     <hr />
+
 
                     <%--Search Bar for assessments--%>
                     <div class="form-inline mt-2">
@@ -42,39 +42,48 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Assessment No.</th>
+                                <th>Name</th>
                                 <th>Subject</th>
                                 <th>Type</th>
-                                <th>View</th>
+                                <th>View/Mark</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>ADMK3262 Principles of Marketing</td>
+                                <td>Chapter 1 Intro to ASP.NET</td>
+                                <td>BAIT2113 Web Application Development</td>
                                 <td>MCQ</td>
                                 <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" />
+                                    <asp:HyperLink runat="server" NavigateUrl="/lecturer/list/assessment/mark" Text="Mark" CssClass="btn btn-outline-success" /></td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>ADMK3262 Principles of Marketing</td>
+                                <td>Chapter 2 Agile methods</td>
+                                <td>BAIT3343 Agile Software Development</td>
                                 <td>Written</td>
                                 <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" />
+                                    <asp:Button runat="server" Text="Mark" CssClass="btn btn-outline-success" /></td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>AACA3232 Principles of Finance</td>
+                                <td>Chapter 3 Switch Security</td>
+                                <td>BAIT2164 Computer Networks</td>
                                 <td>Written</td>
                                 <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" />
+                                    <asp:Button runat="server" Text="Mark" CssClass="btn btn-outline-success" /></td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>ADMK2563 Digital Marketing</td>
+                                <td>Chapter 4 Agile</td>
+                                <td>BAIT3343 Agile Software Development</td>
                                 <td>MCQ</td>
                                 <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" />
+                                    <asp:Button runat="server" Text="Mark" CssClass="btn btn-outline-success" /></td>
                             </tr>
                         </tbody>
                     </table>
