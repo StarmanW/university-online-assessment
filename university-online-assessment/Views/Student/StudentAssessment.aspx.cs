@@ -13,5 +13,10 @@ namespace university_online_assessment.Views.Student
         {
 
         }
+
+        protected void submitAsmntBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/student/list");
+        }
     }
 }

@@ -42,7 +42,7 @@
                                 <td>Chapter 3 Quiz</td>
                                 <td>ADMK3262 Principles of Marketing</td>
                                 <td>MCQ</td>
-                                <td><asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                                <td><asp:Button ID="btnViewAsmnt" runat="server" Text="View" OnClick="btnViewAsmnt_Click" CssClass="btn btn-outline-primary" /></td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -86,6 +86,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Assessment No.</th>
+                                <th>Name</th>
                                 <th>Subject</th>
                                 <th>Date Completed</th>
                                 <th>Grade</th>
