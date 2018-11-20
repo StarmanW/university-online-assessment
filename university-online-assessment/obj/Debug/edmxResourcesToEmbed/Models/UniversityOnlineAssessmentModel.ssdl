@@ -145,6 +145,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="assessName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="subject" Type="uniqueidentifier" Nullable="false" />
     <Property Name="type" Type="int" Nullable="false" />
   </EntityType>
@@ -194,7 +195,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="assessmentId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="question" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="imgPath" Type="varchar" MaxLength="50" />
+    <Property Name="imgPath" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Student_Answer">
     <Key>
@@ -212,6 +213,7 @@
     <Property Name="studentId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="assessmentId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="score" Type="int" Nullable="false" />
+    <Property Name="dateFinished" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Student_Profile">
     <Key>

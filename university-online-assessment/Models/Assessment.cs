@@ -23,6 +23,7 @@ namespace university_online_assessment.Models
         }
     
         public System.Guid Id { get; set; }
+        public string assessName { get; set; }
         public System.Guid subject { get; set; }
         public int type { get; set; }
     

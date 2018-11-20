@@ -26,7 +26,7 @@
             <div class="tab-content table-responsive" id="nav-tabContent">
 
                 <%--Assessments Tab--%>
-                <div class="tab-pane fade" id="nav-assessments" role="tabpanel" aria-labelledby="nav-assessments-tab">
+                <div class="tab-pane fade show active" id="nav-assessments" role="tabpanel" aria-labelledby="nav-assessments-tab">
                     <h2 class="text-center pt-4">Assessments List</h2>
                     <hr />
 
@@ -81,7 +81,7 @@
                 </div>
 
                 <%--Student Tab--%>
-                <div class="tab-pane fade show active" id="nav-students" role="tabpanel" aria-labelledby="nav-students-tab">
+                <div class="tab-pane fade" id="nav-students" role="tabpanel" aria-labelledby="nav-students-tab">
                     <h2 class="text-center pt-4">Student List</h2>
                     <hr />
 
@@ -107,7 +107,7 @@
                                 <td>Samuel Wong Kim Foong</td>
                                 <td>RSD</td>
                                 <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                                    <asp:HyperLink runat="server" NavigateUrl="/lecturer/list/student/assessment" Text="View" CssClass="btn btn-outline-primary" /></td>
                             </tr>
                             <tr>
                                 <td>18WMR12658</td>
@@ -119,7 +119,7 @@
                             <tr>
                                 <td>18WBU32687</td>
                                 <td>Thiban Kumar</td>
-                                <td>RBU</td>
+                                <td>RIT</td>
                                 <td>
                                     <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
                             </tr>

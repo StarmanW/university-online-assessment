@@ -22,6 +22,15 @@ namespace university_online_assessment.Views.Lecturer {
         protected global::System.Web.UI.WebControls.Label subjectLbl;
         
         /// <summary>
+        /// assessName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox assessName;
+        
+        /// <summary>
         /// questionPlaceHolder control.
         /// </summary>
         /// <remarks>
