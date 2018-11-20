@@ -215,6 +215,8 @@
     <Content Include="Views\Lecturer\ViewList.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Admin\RegisterStudent.aspx" />
+    <Content Include="Views\Student\StudentAssessment.aspx" />
+    <Content Include="Views\Student\StudentViewList.aspx" />
     <Content Include="Views\UnauthorizedAccess.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -399,6 +401,20 @@
     <Compile Include="Views\Admin\RegisterStudent.aspx.designer.cs">
       <DependentUpon>RegisterStudent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Student\StudentAssessment.aspx.cs">
+      <DependentUpon>StudentAssessment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\StudentAssessment.aspx.designer.cs">
+      <DependentUpon>StudentAssessment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\StudentViewList.aspx.cs">
+      <DependentUpon>StudentViewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Student\StudentViewList.aspx.designer.cs">
+      <DependentUpon>StudentViewList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\UnauthorizedAccess.aspx.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +431,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Admin\Web.config" />
+    <Content Include="Views\Lecturer\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
