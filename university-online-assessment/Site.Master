@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/tarc_icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
     <%--Head Content Placeholder--%>
@@ -88,6 +88,12 @@
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="/">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/assessment/pre_create">Create Assessment</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/assessment/list">View Assessment</a>
                                     </li>
                                 </ul>
                                 <ul class="navbar-nav ml-auto">
