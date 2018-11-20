@@ -31,8 +31,8 @@ namespace university_online_assessment
             // Lecturer route
             routes.MapPageRoute("PreCreateQuestion", "assessment/pre_create", "~/Views/Lecturer/PreCreateAssessment.aspx");
             routes.MapPageRoute("CreateQuestion", "assessment/create", "~/Views/Lecturer/CreateAssessment.aspx");
-            routes.MapPageRoute("LecturerViewList", "assessment/list", "~/Views/Lecturer/LecturerViewList.aspx");
-           
+            routes.MapPageRoute("LecturerViewList", "lecturer/list", "~/Views/Lecturer/LecturerViewList.aspx");
+            routes.MapPageRoute("StudentAssessmentList", "lecturer/list/student/assessment", "~/Views/Lecturer/StudentAssessmentsList.aspx");
         }
     }
 }

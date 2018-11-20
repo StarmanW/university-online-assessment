@@ -6,6 +6,12 @@
             <div class="row">
                 <div class="col-md-10 mx-auto pt-3">
                     <h3 class="text-center">Assessment for <asp:Label runat="server" ID="subjectLbl"></asp:Label></h3>
+                    
+                    <div class="form-group">
+                        <label>Assessment Name:</label>
+                        <asp:TextBox runat="server" ID="assessName" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    
                     <asp:PlaceHolder runat="server" ID="questionPlaceHolder">
                     </asp:PlaceHolder>
 

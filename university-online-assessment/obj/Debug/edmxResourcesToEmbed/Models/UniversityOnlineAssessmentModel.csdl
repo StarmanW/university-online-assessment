@@ -164,6 +164,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="assessName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="subject" Type="Guid" Nullable="false" />
     <Property Name="type" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Subject1" Relationship="Self.FK_Assessment_Subject" FromRole="Assessment" ToRole="Subject" />
@@ -224,7 +225,7 @@
     <Property Name="Id" Type="Guid" Nullable="false" />
     <Property Name="assessmentId" Type="Guid" Nullable="false" />
     <Property Name="question1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="imgPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="imgPath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Answer" Relationship="Self.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
     <NavigationProperty Name="Assessment" Relationship="Self.FK_Question_Assessment" FromRole="Question" ToRole="Assessment" />
     <NavigationProperty Name="Student_Answer" Relationship="Self.FK_Student_Answer_Question" FromRole="Question" ToRole="Student_Answer" />
@@ -247,6 +248,7 @@
     <Property Name="studentId" Type="Guid" Nullable="false" />
     <Property Name="assessmentId" Type="Guid" Nullable="false" />
     <Property Name="score" Type="Int32" Nullable="false" />
+    <Property Name="dateFinished" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Student_Assessment_aspnet_Users" FromRole="Student_Assessment" ToRole="aspnet_Users" />
     <NavigationProperty Name="Assessment" Relationship="Self.FK_Student_Assessment_Assessment" FromRole="Student_Assessment" ToRole="Assessment" />
   </EntityType>

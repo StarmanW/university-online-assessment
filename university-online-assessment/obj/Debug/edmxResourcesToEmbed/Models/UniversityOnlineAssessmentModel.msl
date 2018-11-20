@@ -147,6 +147,7 @@
       <EntityTypeMapping TypeName="OnlineAssessmentDBModel.Assessment">
         <MappingFragment StoreEntitySet="Assessment">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="assessName" ColumnName="assessName" />
           <ScalarProperty Name="subject" ColumnName="subject" />
           <ScalarProperty Name="type" ColumnName="type" />
         </MappingFragment>
@@ -221,6 +222,7 @@
           <ScalarProperty Name="studentId" ColumnName="studentId" />
           <ScalarProperty Name="assessmentId" ColumnName="assessmentId" />
           <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="dateFinished" ColumnName="dateFinished" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

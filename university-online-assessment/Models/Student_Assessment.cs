@@ -18,6 +18,7 @@ namespace university_online_assessment.Models
         public System.Guid studentId { get; set; }
         public System.Guid assessmentId { get; set; }
         public int score { get; set; }
+        public System.DateTime dateFinished { get; set; }
     
         public virtual aspnet_Users aspnet_Users { get; set; }
         public virtual Assessment Assessment { get; set; }
