@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentViewList.aspx.cs" Inherits="university_online_assessment.Views.Student.StudentViewList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadPlaceholder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <section id="displayProgSection" style="min-height: 100vh">
+
+    <section id="displayAsmntSection" style="min-height: 100vh">
         <div class="container">
             <nav class="mt-5">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -17,35 +19,114 @@
                     <h2 class="text-center pt-4">Current Assessment List</h2>
                     <hr />
 
-                    <%--Add new student link--%>
-                    <%--<asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/register/student" Text="Add New Student" />--%>
-
-                    <%--Search Bar for student--%>
+                    <%--Search Bar for current assessments--%>
                     <div class="form-inline mt-2">
                         <label for="studSearchBox" class="mr-2">Search:</label>
                         <input type="text" id="currentAsmntSearchBox" class="form-control" />
                     </div>
 
+                    <%--Table for assessments list--%>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Assessment No.</th>
+                                <th>Name</th>
+                                <th>Subject</th>
+                                <th>Type</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Chapter 3 Quiz</td>
+                                <td>ADMK3262 Principles of Marketing</td>
+                                <td>MCQ</td>
+                                <td><asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Chapter 2 Test</td>
+                                <td>ADMK3262 Principles of Marketing</td>
+                                <td>Written</td>
+                                <td><asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Chapter 4 - 5 Quiz</td>
+                                <td>AACA3232 Principles of Finance</td>
+                                <td>Written</td>
+                                <td><asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Mid Term Test Preparation</td>
+                                <td>ADMK2563 Digital Marketing</td>
+                                <td>MCQ</td>
+                                <td><asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
 
-            <div class="tab-content table-responsive" id="nav-tabContent">
+
                 <%--Past Assessment Tab--%>
-                <div class="tab-pane fade show active" id="nav-past-assessments" role="tabpanel" aria-labelledby="nav-students-tab">
+                <div class="tab-pane fade show" id="nav-past-assessments" role="tabpanel" aria-labelledby="nav-students-tab">
                     <h2 class="text-center pt-4">Past Assessment List</h2>
                     <hr />
 
-                    <%--Add new student link--%>
-                    <%--<asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/register/student" Text="Add New Student" />--%>
-
-                    <%--Search Bar for student--%>
+                    <%--Search Bar for past assessments--%>
                     <div class="form-inline mt-2">
                         <label for="studSearchBox" class="mr-2">Search:</label>
-                        <input type="text" id="studSearchBox" class="form-control" />
+                        <input type="text" id="pastAsmntSearchBox" class="form-control" />
                     </div>
 
+                    <%--Table for assessments list--%>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Assessment No.</th>
+                                <th>Subject</th>
+                                <th>Date Completed</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Chapter 3 Quiz</td>
+                                <td>ADMK3262 Principles of Marketing</td>
+                                <td>12 December 2018</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Chapter 2 Test</td>
+                                <td>ADMK3262 Principles of Marketing</td>
+                                <td>12 December 2018</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Chapter 4 - 5 Quiz</td>
+                                <td>AACA3232 Principles of Finance</td>
+                                <td>12 December 2018</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Mid Term Test Preparation</td>
+                                <td>ADMK2563 Digital Marketing</td>
+                                <td>12 December 2018</td>
+                                <td>A</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
+
+    <%--Hidden field for remembering previous/current active tab--%>
+    <asp:HiddenField ID="hfTab" runat="server" />
 </asp:Content>

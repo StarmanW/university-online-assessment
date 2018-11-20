@@ -32,7 +32,10 @@ namespace university_online_assessment
             routes.MapPageRoute("PreCreateQuestion", "assessment/pre_create", "~/Views/Lecturer/PreCreateAssessment.aspx");
             routes.MapPageRoute("CreateQuestion", "assessment/create", "~/Views/Lecturer/CreateAssessment.aspx");
             routes.MapPageRoute("LecturerViewList", "assessment/list", "~/Views/Lecturer/LecturerViewList.aspx");
-           
+
+            // Student routes
+            routes.MapPageRoute("StudentViewLists", "student/list", "~/Views/Student/StudentViewList.aspx");
+            routes.MapPageRoute("StudentAssessment", "student/assessment", "~/Views/Student/StudentAssessment.aspx");
         }
     }
 }
