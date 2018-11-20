@@ -89,6 +89,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/assessment/pre_create">Create Assessment</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/assessment/list">View Assessment</a>
+                                    </li>
                                 </ul>
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item dropdown">

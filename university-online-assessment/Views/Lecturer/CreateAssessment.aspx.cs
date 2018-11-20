@@ -95,6 +95,7 @@ namespace university_online_assessment.Views.Lecturer
             }
         }
 
+        // Add the question
         protected void submitBtn_Click(object sender, EventArgs e)
         {
             try
@@ -131,7 +132,6 @@ namespace university_online_assessment.Views.Lecturer
                         {
                             TextBox quesTxtBox = ctrl as TextBox;
                             newQues.question1 = quesTxtBox.Text;
-                            System.Diagnostics.Debug.WriteLine($"Question ID: {newQues.Id}, Question: {newQues.question1}");
                         }
                         else if (ctrl is FileUpload)
                         {
@@ -162,26 +162,25 @@ namespace university_online_assessment.Views.Lecturer
                                         Directory.CreateDirectory(Server.MapPath(imageStoragePath));
                                     }
 
-                                    String finalPath = $"{Server.MapPath(imageStoragePath)}{fileNameWithoutExt}_{DateTime.Now.Ticks.ToString()}{fileExtension}";
+                                    String finalPath = $"{fileNameWithoutExt}_{DateTime.Now.Ticks.ToString()}{fileExtension}";
+
 
                                     // Take the image and save it as "/imageStoragePath/fileName_datetimeTicks.extension"
                                     // Use ticks from DateTime for uniqueness and prevent duplication of file names.
-                                    quesImg.PostedFile.SaveAs(finalPath);
+                                    quesImg.PostedFile.SaveAs($"{Server.MapPath(imageStoragePath)}{finalPath}");
 
                                     newQues.imgPath = finalPath;
                                 }
                             }
                         }
 
-                        if (newQues.question1 != null)
+                        if (newQues.question1 != null || (newQues.question1 != null && newQues.imgPath != null))
                         {
                             this.db.Question.Add(newQues);
                             this.db.SaveChanges();
                         }
                     }
                 }
-
-                // Commit changes to DB
 
             }
             catch (DbEntityValidationException dbEx)
