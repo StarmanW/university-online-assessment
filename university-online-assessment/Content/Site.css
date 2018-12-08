@@ -21,10 +21,19 @@
 }
 
 #createAssessmentSection,
-#preCreateAssessmentSection,
+#preCreateAssessmentSection {
+    background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
 #registerStudSection,
 #registerSubjectSection,
 #registerLecturerSection {
-    background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
+    background: url('../Content/Images/bg2.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#lecturerViewListSection {
+    background: url('../Content/Images/book2.jpg') no-repeat center center fixed;
     background-size: cover;
 }

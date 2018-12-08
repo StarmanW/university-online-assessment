@@ -23,6 +23,7 @@ namespace university_online_assessment.Models
         public string contactNo { get; set; }
         public string address { get; set; }
         public string faculty { get; set; }
+        public int status { get; set; }
     
         public virtual aspnet_Users aspnet_Users { get; set; }
     }

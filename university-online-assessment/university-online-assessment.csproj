@@ -465,6 +465,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Admin\Web.config" />
     <Content Include="Views\Lecturer\Web.config" />
+    <Content Include="Views\Student\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

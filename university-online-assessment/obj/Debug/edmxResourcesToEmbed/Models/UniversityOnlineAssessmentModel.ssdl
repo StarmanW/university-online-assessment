@@ -179,6 +179,7 @@
     <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="faculty" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Programme">
     <Key>
@@ -227,6 +228,7 @@
     <Property Name="gender" Type="nchar" MaxLength="1" Nullable="false" />
     <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Subject">
     <Key>

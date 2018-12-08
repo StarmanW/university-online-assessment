@@ -184,6 +184,7 @@
           <ScalarProperty Name="contactNo" ColumnName="contactNo" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -237,6 +238,7 @@
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="contactNo" ColumnName="contactNo" />
           <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

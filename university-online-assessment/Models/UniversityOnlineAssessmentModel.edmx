@@ -184,6 +184,7 @@
           <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="faculty" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Programme">
           <Key>
@@ -232,6 +233,7 @@
           <Property Name="gender" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="contactNo" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -877,6 +879,7 @@
           <Property Name="contactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="faculty" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Lecturer_Profile_To_aspnet_Users" FromRole="Lecturer_Profile" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="Programme">
@@ -935,6 +938,7 @@
           <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="contactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Student_Profile_To_aspnet_Users" FromRole="Student_Profile" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="Subject">
@@ -1536,6 +1540,7 @@
                 <ScalarProperty Name="contactNo" ColumnName="contactNo" />
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="faculty" ColumnName="faculty" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1589,6 +1594,7 @@
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="contactNo" ColumnName="contactNo" />
                 <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

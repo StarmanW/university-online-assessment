@@ -206,6 +206,7 @@
     <Property Name="contactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="faculty" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
     <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Lecturer_Profile_To_aspnet_Users" FromRole="Lecturer_Profile" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="Programme">
@@ -264,6 +265,7 @@
     <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="contactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
     <NavigationProperty Name="aspnet_Users" Relationship="Self.FK_Student_Profile_To_aspnet_Users" FromRole="Student_Profile" ToRole="aspnet_Users" />
   </EntityType>
   <EntityType Name="Subject">
