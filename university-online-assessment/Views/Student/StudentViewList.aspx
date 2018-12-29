@@ -1,9 +1,37 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentViewList.aspx.cs" Inherits="university_online_assessment.Views.Student.StudentViewList" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <script type="text/javascript">
+        // JS scripts for remembering previously active tab
+        $(document).ready(function () {
+            var selectedTab = $("#<%=hfTab.ClientID%>");
+            var tabId = selectedTab.val() != "" ? selectedTab.val() : "nav-current-assessments";
+            $('#nav-tab a[href="#' + tabId + '"]').tab('show');
+            $("#nav-tab a").click(function () {
+                selectedTab.val($(this).attr("href").substring(1));
+            });
+        });
+    </script>
+
     <section id="displayAsmntSection" style="min-height: 100vh">
         <div class="container bg-light">
             <nav class="pt-5">
+
+                <%--Assessment Completion Alert--%>
+                <asp:PlaceHolder runat="server" ID="alertPlaceholder" Visible="false">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        You have successfully completed the
+                        <asp:Label runat="server" ID="assessName" />
+                        assessment! Thank you for your time!<br />
+                        Click on "Past Assessments" tabs to view your score.
+                    </div>
+                </asp:PlaceHolder>
+
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-current-assessments-tab" data-toggle="tab" href="#nav-current-assessments" role="tab" aria-controls="nav-current-assessments" aria-selected="true">Current Assessments</a>
                     <a class="nav-item nav-link" id="nav-past-assessments-tab" data-toggle="tab" href="#nav-past-assessments" role="tab" aria-controls="nav-past-assessments" aria-selected="false">Past Assessments</a>

@@ -16,6 +16,12 @@ namespace university_online_assessment.Views.Student
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new OnlineAssessmentDBEntities();
+
+            if (Session["assessCompleted"] != null && Session["assessName"] != null)
+            {
+                assessName.Text = Session["assessName"].ToString();
+                alertPlaceholder.Visible = true;
+            }
         }
 
         protected void btnViewAsmnt_Click(object sender, EventArgs e)
@@ -25,7 +31,7 @@ namespace university_online_assessment.Views.Student
 
         protected void displayCurrentAssessmentList_Sorted(object sender, EventArgs e)
         {
-
+            hfTab.Value = "nav-current-assessments";
         }
 
         // The return type can be changed to IEnumerable, however to support
@@ -45,7 +51,7 @@ namespace university_online_assessment.Views.Student
 
         protected void displayPastAssessmentList_Sorted(object sender, EventArgs e)
         {
-
+            hfTab.Value = "nav-past-assessments";
         }
 
         // The return type can be changed to IEnumerable, however to support
