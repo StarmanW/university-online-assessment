@@ -54,17 +54,17 @@
                         AutoGenerateColumns="false"
                         SelectMethod="getLecturerAssessments">
                         <Columns>
-                            <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                            <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="assessName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Assessment.assessName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Subject Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                            <asp:TemplateField HeaderText="Subject Name" HeaderStyle-ForeColor="White" SortExpression="subjectName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Assessment.Subject1.subjectName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Assessment Type" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                            <asp:TemplateField HeaderText="Assessment Type" HeaderStyle-ForeColor="White" SortExpression="type">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{(Item.Assessment.type == 0 ? "MCQ" : "Written")}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
@@ -91,39 +91,44 @@
                     </div>
 
                     <%--Table for student list--%>
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Student ID</th>
-                                <th>Name</th>
-                                <th>Programme</th>
-                                <th>View Assessments</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>18WMR12048</td>
-                                <td>Samuel Wong Kim Foong</td>
-                                <td>RSD</td>
-                                <td>
-                                    <asp:HyperLink runat="server" NavigateUrl="/lecturer/list/student/assessment" Text="View" CssClass="btn btn-outline-primary" /></td>
-                            </tr>
-                            <tr>
-                                <td>18WMR12658</td>
-                                <td>Chong Jia Herng</td>
-                                <td>RSD</td>
-                                <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
-                            </tr>
-                            <tr>
-                                <td>18WBU32687</td>
-                                <td>Thiban Kumar</td>
-                                <td>RIT</td>
-                                <td>
-                                    <asp:Button runat="server" Text="View" CssClass="btn btn-outline-primary" /></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <asp:GridView runat="server"
+                        ID="displayStudentList"
+                        EmptyDataText="No students found."
+                        GridLines="None"
+                        CssClass="table mt-4"
+                        HeaderStyle-CssClass="thead-dark"
+                        PagerStyle-CssClass="pagination-ys"
+                        ItemType="university_online_assessment.Models.Enrollment"
+                        DataKeyNames="Id"
+                        AllowSorting="true"
+                        AllowPaging="true"
+                        PageSize="10"
+                        OnSorted="displayStudentList_Sorted"
+                        AutoGenerateColumns="false"
+                        SelectMethod="displayStudentList_GetData">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="UserName">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.aspnet_Users.Student_Profile.firstName} {Item.aspnet_Users.Student_Profile.lastName}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Programme" HeaderStyle-ForeColor="White" SortExpression="progName">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.Programme.progName.Substring(Item.Programme.progName.IndexOf("(R"))}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="View Assessments" HeaderStyle-ForeColor="White">
+                                <ItemTemplate>
+                                    <asp:HyperLink runat="server" NavigateUrl="/lecturer/list/student/assessment" Text="View" CssClass="btn btn-outline-primary" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </div>
@@ -131,4 +136,51 @@
 
     <%--Hidden field for remembering previous/current active tab--%>
     <asp:HiddenField ID="hfTab" runat="server" />
+
+    <script>
+        // IIFE (Immediately Invoked Function Expression)
+        (function () {
+            // Select the search input box for each of the table list
+            const assessSearchBox = document.querySelector('input#assessSearchBox'),
+                studSearchBox = document.querySelector('input#studSearchBox'),
+                ID = [
+                    'displayLectAssessGrid',
+                    'displayStudentList'
+                ];
+
+            // Filter programme list function
+            function filterAssessment(e) {
+                const progTable = document.querySelector(`[id*="${ID[0]}"]`).firstElementChild.children;
+
+                Array.from(progTable).forEach((v, i) => {
+                    if (v.className === '') {
+                        if (v.innerText.toLowerCase().indexOf(assessSearchBox.value.toLowerCase()) !== -1) {
+                            v.style.removeProperty('display');
+                        } else {
+                            v.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            // Filter lecturer list function
+            function filterStudents(e) {
+                const lectTable = document.querySelector(`[id*="${ID[1]}"]`).firstElementChild.children;
+
+                Array.from(lectTable).forEach((v, i) => {
+                    if (v.className === '') {
+                        if (v.innerText.toLowerCase().indexOf(studSearchBox.value.toLowerCase()) !== -1) {
+                            v.style.removeProperty('display');
+                        } else {
+                            v.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            // Add event listeners to each search box
+            assessSearchBox.addEventListener('input', filterAssessment);
+            studSearchBox.addEventListener('input', filterStudents);
+        })();
+    </script>
 </asp:Content>

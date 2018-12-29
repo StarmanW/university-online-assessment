@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-8 mx-auto pt-5">
                     <h1 class="text-center">Create new Assessment</h1>
-
+                    
                     <%--Assessment Type--%>
                     <div class="form-group">
                         <label>Assessment Type:</label>
@@ -16,6 +16,17 @@
                         </asp:RadioButtonList>
                         <asp:RequiredFieldValidator runat="server" SetFocusOnError="true" ErrorMessage="Please select a assessment type." Display="Dynamic" ForeColor="Red" ControlToValidate="assessType"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator runat="server" SetFocusOnError="true" ErrorMessage="Please select the correct assessment type." Display="Dynamic" ForeColor="Red" ControlToValidate="assessType" ValidationExpression="^[0-1]$"></asp:RegularExpressionValidator>
+                    </div>
+
+                    <%--Assessment Publicity--%>
+                    <div class="form-group">
+                        <label>Publicity:</label>
+                        <asp:RadioButtonList runat="server" ID="assessPublicity" CssClass="form-check form-check-inline" RepeatLayout="Flow">
+                            <asp:ListItem Value="0" Text="Private" Selected="True" class="form-check-input"></asp:ListItem>
+                            <asp:ListItem Value="1" Text="Public" class="form-check-input"></asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:RequiredFieldValidator runat="server" SetFocusOnError="true" ErrorMessage="Please select a assessment publicity." Display="Dynamic" ForeColor="Red" ControlToValidate="assessPublicity"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator runat="server" SetFocusOnError="true" ErrorMessage="Please select the correct assessment publicity." Display="Dynamic" ForeColor="Red" ControlToValidate="assessPublicity" ValidationExpression="^[0-1]$"></asp:RegularExpressionValidator>
                     </div>
 
                     <%--Subject--%>

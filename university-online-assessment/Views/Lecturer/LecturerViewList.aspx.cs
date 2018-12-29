@@ -20,13 +20,29 @@ namespace university_online_assessment.Views.Lecturer
 
         protected void displayLectAssessGrid_Sorted(object sender, EventArgs e)
         {
-
+            hfTab.Value = "nav-assessments";
         }
 
         public IQueryable<university_online_assessment.Models.Lecturer_Assessment> getLecturerAssessments()
         {
             Guid lecturerID = (Guid)Membership.GetUser().ProviderUserKey;
             return this.db.Lecturer_Assessment.Where(la => la.lecturerId == lecturerID);
+        }
+
+        protected void displayStudentList_Sorted(object sender, EventArgs e)
+        {
+            hfTab.Value = "nav-students";
+        }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<university_online_assessment.Models.Enrollment> displayStudentList_GetData()
+        {
+            return db.Enrollment.Where(e => e.Programme.faculty.Equals("FOCS"));
         }
     }
 }

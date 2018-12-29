@@ -109,6 +109,7 @@ namespace university_online_assessment.Views.Lecturer
                 newAssess.assessName = assessName.Text;
                 newAssess.subject = Guid.Parse(Session["subject"].ToString());
                 newAssess.type = Convert.ToInt32(Session["assessType"]);
+                newAssess.publicity = Convert.ToInt16(Session["publicity"]);
                 this.db.Assessment.Add(newAssess);
                 this.db.SaveChanges();
 
@@ -260,7 +261,6 @@ namespace university_online_assessment.Views.Lecturer
                 {
                     foreach (var validationError in validationErrors.ValidationErrors)
                     {
-                        //testLbl.Text += $"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}";
                         System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
                     }
                 }

@@ -48,6 +48,7 @@ namespace university_online_assessment.Views.Lecturer
         protected void createAssessBtn_Click(object sender, EventArgs e)
         {
             Session.Add("assessType", assessType.SelectedItem.Value);
+            Session.Add("publicity", assessPublicity.SelectedItem.Value);
             Session.Add("subject", subject.SelectedItem.Value);
             Session.Add("quesNum", quesNum.Text);
             Response.Redirect("/assessment/create");

@@ -38,7 +38,7 @@ namespace university_online_assessment
 
             // Student routes
             routes.MapPageRoute("StudentViewLists", "student/list", "~/Views/Student/StudentViewList.aspx");
-            routes.MapPageRoute("StudentAssessment", "student/assessment", "~/Views/Student/StudentAssessment.aspx");
+            routes.MapPageRoute("StudentAssessment", "student/assessment/{id}", "~/Views/Student/StudentAssessment.aspx");
         }
     }
 }

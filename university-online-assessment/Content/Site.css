@@ -11,6 +11,7 @@
 }
 
 /* Section style*/
+#homepageSection .container,
 #preCreateAssessmentSection .container,
 #createAssessmentSection .container,
 #registerStudSection .container,
@@ -20,13 +21,21 @@
     max-width: 800px;
 }
 
+#displayAsmntSection .container,
+#asmntSection .container {
+    min-height: 100vh;
+}
+
 #createAssessmentSection,
+#displayAsmntSection,
 #preCreateAssessmentSection {
     background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
+#homepageSection,
 #registerStudSection,
+#asmntSection,
 #registerSubjectSection,
 #registerLecturerSection {
     background: url('../Content/Images/bg2.jpg') no-repeat center center fixed;

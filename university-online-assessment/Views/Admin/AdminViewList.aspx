@@ -70,11 +70,6 @@
                             <asp:DynamicField DataField="birthDate" HeaderText="Birth date" HeaderStyle-ForeColor="White" />
                             <asp:DynamicField DataField="icNum" HeaderText="IC Number" HeaderStyle-ForeColor="White" />
                             <asp:DynamicField DataField="contactNo" HeaderText="Contact" HeaderStyle-ForeColor="White" />
-                            <asp:TemplateField HeaderText="Delete" HeaderStyle-ForeColor="White">
-                                <ItemTemplate>
-                                    <a href="/list/student/<%# Item.Id %>/delete"><i class="far fa-trash-alt"></i></a>
-                                </ItemTemplate>
-                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -109,11 +104,6 @@
                         <Columns>
                             <asp:DynamicField DataField="progName" HeaderText="Programme Name" HeaderStyle-ForeColor="White" />
                             <asp:DynamicField DataField="faculty" HeaderText="Faculty" HeaderStyle-ForeColor="White" />
-                            <asp:TemplateField HeaderText="Delete" HeaderStyle-ForeColor="White">
-                                <ItemTemplate>
-                                    <a href="/list/programme/<%# Item.progId %>/delete"><i class="far fa-trash-alt"></i></a>
-                                </ItemTemplate>
-                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -163,11 +153,6 @@
                             <asp:DynamicField DataField="birthDate" HeaderText="Birth date" HeaderStyle-ForeColor="White" />
                             <asp:DynamicField DataField="icNum" HeaderText="IC Number" HeaderStyle-ForeColor="White" />
                             <asp:DynamicField DataField="contactNo" HeaderText="Contact" HeaderStyle-ForeColor="White" />
-                            <asp:TemplateField HeaderText="Delete" HeaderStyle-ForeColor="White">
-                                <ItemTemplate>
-                                    <a href="/list/student/<%# Item.Id %>/delete"><i class="far fa-trash-alt"></i></a>
-                                </ItemTemplate>
-                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>

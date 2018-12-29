@@ -1,27 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentAssessment.aspx.cs" Inherits="university_online_assessment.Views.Student.StudentAssessment" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadPlaceholder" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="assessmentQuestionSection" ContentPlaceHolderID="MainContent" runat="server">
     <section id="asmntSection" style="min-height: 100vh">
         <div class="container bg-light">
             <div class="row">
-                <div class="col-md-8 mx-auto pt-5">
-                    <h1 class="text-center">ADMK3262 Principles of Marketing</h1>
-                    <h2 class="text-center">Chapter 3 Quiz</h2>
+                <div class="col-md-10 mx-auto pt-3">
+                    <h1 class="text-center">
+                        <asp:Label runat="server" ID="subjectNameHeader"></asp:Label></h1>
+                    <h2 class="text-center">
+                        <asp:Label runat="server" ID="assessNameHeader"></asp:Label></h2>
 
-                    <div class="form-group">
-                        <label>1. Del Monte’s Barbecue Ketchup that contained finely chopped onions and was aimed at the heavy ketchup-eating segment (kids). That segment –kids-- did not care for onions. What is likely the reason the reason for this product failure?</label>
-                        <textarea id="txtAns" class="form-control" cols="20" rows="2"></textarea>
-                    </div>
+                    <asp:PlaceHolder runat="server" ID="questionPlaceHolder"></asp:PlaceHolder>
 
-                    <div class="form-group">
-                        <label>2. When deciding on the purchase of a new wireless pocket PC, Bob was among the very first. He is very highly educated, and makes purchase decisions based on information from Internet newsgroups, newspapers, and technical journals he subscribes to. Stan made his decision based on numerous informal social contacts, though he is not a leader in any social setting. He was among the first 50% of the population to buy the wireless pocket PC. Out of profiles of product adopters, Bob could best be described as ... </label>
-                        <textarea id="txtAns1" class="form-control" cols="20" rows="2"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                    <div class="form-group pb-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="/student/list" class="btn btn-block btn-outline-primary">Back</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,11 +40,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
+                            <div class="col-md-12">
+                                Please ensure you have double checked your answer.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
                             <div class="col-md-6">
-                                <asp:Button ID="Button1" CssClass="btn btn-primary btn-block" OnClick="submitAsmntBtn_Click" runat="server" Text="Confirm" />
+                                <asp:Button runat="server" ID="submitBtn" OnClick="submitAsmntBtn_Click" Text="Confirm" CssClass="btn btn-block btn-outline-success" />
                             </div>
                             <div class="col-md-6">
-                                <asp:Button ID="Button4" CssClass="btn btn-danger btn-block" runat="server" Text="Cancel" />
+                                <button type="button" class="btn btn-outline-danger btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
                             </div>
                         </div>
                     </div>

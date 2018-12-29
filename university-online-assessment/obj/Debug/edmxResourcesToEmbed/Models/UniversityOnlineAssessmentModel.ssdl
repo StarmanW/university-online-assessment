@@ -148,6 +148,7 @@
     <Property Name="assessName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="subject" Type="uniqueidentifier" Nullable="false" />
     <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="publicity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Enrollment">
     <Key>

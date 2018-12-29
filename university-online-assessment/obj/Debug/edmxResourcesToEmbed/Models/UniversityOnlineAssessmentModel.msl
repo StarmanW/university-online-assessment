@@ -146,6 +146,7 @@
     <EntitySetMapping Name="Assessment">
       <EntityTypeMapping TypeName="OnlineAssessmentDBModel.Assessment">
         <MappingFragment StoreEntitySet="Assessment">
+          <ScalarProperty Name="publicity" ColumnName="publicity" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="assessName" ColumnName="assessName" />
           <ScalarProperty Name="subject" ColumnName="subject" />

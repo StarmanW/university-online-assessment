@@ -171,6 +171,7 @@
     <NavigationProperty Name="Lecturer_Assessment" Relationship="Self.FK_Lecturer_Assessment_Assessment" FromRole="Assessment" ToRole="Lecturer_Assessment" />
     <NavigationProperty Name="Question" Relationship="Self.FK_Question_Assessment" FromRole="Assessment" ToRole="Question" />
     <NavigationProperty Name="Student_Assessment" Relationship="Self.FK_Student_Assessment_Assessment" FromRole="Assessment" ToRole="Student_Assessment" />
+    <Property Name="publicity" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Enrollment">
     <Key>

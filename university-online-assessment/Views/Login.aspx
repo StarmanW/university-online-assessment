@@ -42,6 +42,7 @@
                             <div class="col-md-10 form-group">
                                 <asp:TextBox runat="server" CssClass="form-control" ID="studId"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="studIdRequired" runat="server" ControlToValidate="studId" ErrorMessage="Student ID is required." ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="StudentGroup" />
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="studId" ErrorMessage="Please enter the correct student ID format" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="StudentGroup" ValidationExpression="^\d{2}\w{3}\d{5}$" />
                             </div>
                         </div>
 
@@ -84,6 +85,7 @@
                             <div class="col-md-10 form-group">
                                 <asp:TextBox runat="server" CssClass="form-control" ID="lecturerId"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="lecturerIdReuqired" runat="server" ControlToValidate="lecturerId" ErrorMessage="Lecturer ID is required." ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="LecturerGroup" />
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="lecturerId" ErrorMessage="Please enter the correct ID format" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="LecturerGroup" ValidationExpression="^\d{5}$" />
                             </div>
                         </div>
 
@@ -119,6 +121,7 @@
                             <div class="col-md-10 form-group">
                                 <asp:TextBox runat="server" CssClass="form-control" ID="adminId"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="adminIdRequired" runat="server" ControlToValidate="adminId" ErrorMessage="Admin ID is required." ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="AdminGroup" />
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="adminId" ErrorMessage="Please enter the admin ID format" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="AdminGroup" ValidationExpression="^\w{5}\d{3,}$" />
                             </div>
                         </div>
 

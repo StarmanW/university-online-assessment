@@ -26,6 +26,7 @@ namespace university_online_assessment.Models
         public string assessName { get; set; }
         public System.Guid subject { get; set; }
         public int type { get; set; }
+        public int publicity { get; set; }
     
         public virtual Subject Subject1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

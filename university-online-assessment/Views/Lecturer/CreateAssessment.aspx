@@ -25,8 +25,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <asp:Label runat="server" ID="testLbl"></asp:Label>
                 </div>
             </div>
         </div>

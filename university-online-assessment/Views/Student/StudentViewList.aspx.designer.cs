@@ -13,13 +13,22 @@ namespace university_online_assessment.Views.Student {
     public partial class StudentViewList {
         
         /// <summary>
-        /// btnViewAsmnt control.
+        /// displayCurrentAssessmentList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewAsmnt;
+        protected global::System.Web.UI.WebControls.GridView displayCurrentAssessmentList;
+        
+        /// <summary>
+        /// displayPastAssessmentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView displayPastAssessmentList;
         
         /// <summary>
         /// hfTab control.
