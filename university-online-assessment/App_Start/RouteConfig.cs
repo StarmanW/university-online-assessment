@@ -23,14 +23,14 @@ namespace university_online_assessment
             routes.MapPageRoute("LoginPage", "login", "~/Views/Login.aspx");
 
             // Admin route
-            routes.MapPageRoute("RegisterStudent", "register/student", "~/Views/Admin/RegisterStudent.aspx");
-            routes.MapPageRoute("RegisterLecturer", "register/lecturer", "~/Views/Admin/RegisterLecturer.aspx");
-            routes.MapPageRoute("RegisterSubject", "register/subject", "~/Views/Admin/RegisterSubject.aspx");
+            routes.MapPageRoute("RegisterStudent", "admin/register/student", "~/Views/Admin/RegisterStudent.aspx");
+            routes.MapPageRoute("RegisterLecturer", "admin/register/lecturer", "~/Views/Admin/RegisterLecturer.aspx");
+            routes.MapPageRoute("RegisterSubject", "admin/register/subject", "~/Views/Admin/RegisterSubject.aspx");
             routes.MapPageRoute("AdminViewList", "admin/list", "~/Views/Admin/AdminViewList.aspx");
 
             // Lecturer route
-            routes.MapPageRoute("PreCreateQuestion", "assessment/pre_create", "~/Views/Lecturer/PreCreateAssessment.aspx");
-            routes.MapPageRoute("CreateQuestion", "assessment/create", "~/Views/Lecturer/CreateAssessment.aspx");
+            routes.MapPageRoute("PreCreateQuestion", "lecturer/assessment/pre_create", "~/Views/Lecturer/PreCreateAssessment.aspx");
+            routes.MapPageRoute("CreateQuestion", "lecturer/assessment/create", "~/Views/Lecturer/CreateAssessment.aspx");
             routes.MapPageRoute("LecturerViewList", "lecturer/list", "~/Views/Lecturer/LecturerViewList.aspx");
             routes.MapPageRoute("EditAssessment", "lecturer/assessment/{id}/edit", "~/Views/Lecturer/EditAssessment.aspx");
             routes.MapPageRoute("StudentAssessmentList", "lecturer/list/student/assessment", "~/Views/Lecturer/StudentAssessmentsList.aspx");

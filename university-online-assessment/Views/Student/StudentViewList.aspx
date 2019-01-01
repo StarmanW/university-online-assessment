@@ -72,7 +72,7 @@
                                     <asp:Label Text='<%# $"{Item.assessName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Subject" HeaderStyle-ForeColor="White" SortExpression="subjectName">
+                            <asp:TemplateField HeaderText="Subject" HeaderStyle-ForeColor="White" SortExpression="Subject1.subjectName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Subject1.subjectName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
@@ -119,17 +119,17 @@
                         AutoGenerateColumns="false"
                         SelectMethod="displayPastAssessmentList_GetData">
                         <Columns>
-                            <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="assessName">
+                            <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="Assessment.assessName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Assessment.assessName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Subject" HeaderStyle-ForeColor="White" SortExpression="subjectName">
+                            <asp:TemplateField HeaderText="Subject" HeaderStyle-ForeColor="White" SortExpression="Assessment.Subject1.subjectName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Assessment.Subject1.subjectName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Type" HeaderStyle-ForeColor="White" SortExpression="type">
+                            <asp:TemplateField HeaderText="Type" HeaderStyle-ForeColor="White" SortExpression="Assessment.type">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{(Item.Assessment.type == 0 ? "MCQ" : "Written")}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
@@ -141,7 +141,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Grade" HeaderStyle-ForeColor="White" SortExpression="score">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%# $"{Item.score}" %>' runat="server"></asp:Label>
+                                    <asp:Label Text='<%# $"{Item.getGrade()}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

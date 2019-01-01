@@ -17,9 +17,21 @@
     <section id="lecturerViewListSection">
         <div class="container bg-light" style="min-height: 100vh">
             <nav class="pt-5">
+
+                <%--Assessment Creation Successful Alert--%>
+                <asp:PlaceHolder runat="server" ID="alertPlaceholder" Visible="false">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        The assessment "<asp:Label runat="server" ID="assessName" />" has been successfully created!
+                    </div>
+                </asp:PlaceHolder>
+
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link" id="nav-assessments-tab" data-toggle="tab" href="#nav-assessments" role="tab" aria-controls="nav-assessments" aria-selected="false">Assessments</a>
-                    <a class="nav-item nav-link active" id="nav-students-tab" data-toggle="tab" href="#nav-students" role="tab" aria-controls="nav-students" aria-selected="true">Students</a>
+                    <a class="nav-item nav-link active" id="nav-assessments-tab" data-toggle="tab" href="#nav-assessments" role="tab" aria-controls="nav-assessments" aria-selected="false">Assessments</a>
+                    <a class="nav-item nav-link" id="nav-students-tab" data-toggle="tab" href="#nav-students" role="tab" aria-controls="nav-students" aria-selected="true">Students</a>
                 </div>
             </nav>
 
@@ -54,22 +66,22 @@
                         AutoGenerateColumns="false"
                         SelectMethod="getLecturerAssessments">
                         <Columns>
-                            <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="assessName">
+                            <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="Assessment.assessName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Assessment.assessName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Subject Name" HeaderStyle-ForeColor="White" SortExpression="subjectName">
+                            <asp:TemplateField HeaderText="Subject Name" HeaderStyle-ForeColor="White" SortExpression="Assessment.Subject1.subjectName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Assessment.Subject1.subjectName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Assessment Type" HeaderStyle-ForeColor="White" SortExpression="type">
+                            <asp:TemplateField HeaderText="Assessment Type" HeaderStyle-ForeColor="White" SortExpression="Assessment.type">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{(Item.Assessment.type == 0 ? "MCQ" : "Written")}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="View/Mark" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                            <asp:TemplateField HeaderText="View/Mark" HeaderStyle-ForeColor="White">
                                 <ItemTemplate>
                                     <a href="#" class="btn btn-outline-primary">Edit</a>
                                     <a href="/lecturer/list/assessment/<%# Item.assessmentId %>" class="btn btn-outline-success">Mark</a>
@@ -107,17 +119,17 @@
                         AutoGenerateColumns="false"
                         SelectMethod="displayStudentList_GetData">
                         <Columns>
-                            <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="UserName">
+                            <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.UserName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                            <asp:TemplateField HeaderText="Name" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.Student_Profile.firstName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.aspnet_Users.Student_Profile.firstName} {Item.aspnet_Users.Student_Profile.lastName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Programme" HeaderStyle-ForeColor="White" SortExpression="progName">
+                            <asp:TemplateField HeaderText="Programme" HeaderStyle-ForeColor="White" SortExpression="Programme.progName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.Programme.progName.Substring(Item.Programme.progName.IndexOf("(R"))}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>

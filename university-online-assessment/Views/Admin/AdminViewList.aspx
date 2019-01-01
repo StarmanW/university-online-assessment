@@ -31,7 +31,7 @@
                     <hr />
 
                     <%--Add new student link--%>
-                    <asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/register/student" Text="Add New Student" />
+                    <asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/admin/register/student" Text="Add New Student" />
 
                     <%--Search Bar for student--%>
                     <div class="form-inline mt-2">
@@ -56,7 +56,7 @@
                         AutoGenerateColumns="false"
                         SelectMethod="getStudents">
                         <Columns>
-                            <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="UserName">
+                            <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.UserName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
@@ -114,7 +114,7 @@
                     <hr />
 
                     <%--Add new lecturer link--%>
-                    <asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/register/lecturer" Text="Add New Lecturer" />
+                    <asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/admin/register/lecturer" Text="Add New Lecturer" />
 
                     <%--Search Bar for lecturer--%>
                     <div class="form-inline mt-2">
@@ -139,7 +139,7 @@
                         AutoGenerateColumns="false"
                         SelectMethod="getLecturers">
                         <Columns>
-                            <asp:TemplateField HeaderText="Lecturer ID" HeaderStyle-ForeColor="White" SortExpression="UserName">
+                            <asp:TemplateField HeaderText="Lecturer ID" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.UserName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>

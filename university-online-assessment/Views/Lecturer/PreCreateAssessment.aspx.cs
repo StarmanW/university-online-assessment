@@ -49,7 +49,7 @@ namespace university_online_assessment.Views.Lecturer
             Session.Add("publicity", assessPublicity.SelectedItem.Value);
             Session.Add("subject", subject.SelectedItem.Value);
             Session.Add("quesNum", quesNum.Text);
-            Response.Redirect("/assessment/create");
+            Response.Redirect("/lecturer/assessment/create");
         }
     }
 }

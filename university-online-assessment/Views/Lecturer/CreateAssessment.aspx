@@ -21,7 +21,7 @@
                                 <asp:Button runat="server" ID="submitBtn" OnClick="submitBtn_Click" Text="Create Assessment" CssClass="btn btn-block btn-outline-success" />
                             </div>
                             <div class="col-md-6">
-                                <a href="/assessment/pre_create" class="btn btn-block btn-outline-primary">Back</a>
+                                <a href="/lecturer/assessment/pre_create" class="btn btn-block btn-outline-primary">Back</a>
                             </div>
                         </div>
                     </div>

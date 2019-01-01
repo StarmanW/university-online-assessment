@@ -16,6 +16,12 @@ namespace university_online_assessment.Views.Lecturer
         protected void Page_Load(object sender, EventArgs e)
         {
             this.db = new OnlineAssessmentDBEntities();
+
+            if (Session["assessCreated"] != null && Session["assessName"] != null)
+            {
+                assessName.Text = Session["assessName"].ToString();
+                alertPlaceholder.Visible = true;
+            }
         }
 
         protected void displayLectAssessGrid_Sorted(object sender, EventArgs e)

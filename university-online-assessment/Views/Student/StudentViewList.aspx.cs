@@ -44,8 +44,8 @@ namespace university_online_assessment.Views.Student
         {
             Guid studentID = (Guid)Membership.GetUser().ProviderUserKey;
             Enrollment enrollment = db.Enrollment.Where(e => e.studId == studentID).FirstOrDefault();
-            return db.Assessment.Where(a => a.Subject1.progId == enrollment.progId &&
-            db.Student_Assessment.Where(sa => sa.assessmentId == a.Id).FirstOrDefault() == null ||
+            return db.Assessment.Where(a => a.Subject1.progId == enrollment.progId ||
+            db.Student_Assessment.Where(sa => sa.assessmentId == a.Id).FirstOrDefault() == null &&
             a.publicity == 1);
         }
 

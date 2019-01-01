@@ -253,7 +253,9 @@ namespace university_online_assessment.Views.Lecturer
                         }
                     }
                 }
-
+                Session["assessCreated"] = "1";
+                Session["assessName"] = newAssess.assessName;
+                Response.Redirect("/lecturer/list");
             }
             catch (DbEntityValidationException dbEx)
             {

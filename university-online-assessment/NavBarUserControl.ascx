@@ -49,7 +49,7 @@
                                 <a class="nav-link" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/assessment/pre_create">Create Assessment</a>
+                                <a class="nav-link" href="/lecturer/assessment/pre_create">Create Assessment</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/lecturer/list">View List</a>
@@ -81,9 +81,9 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="registerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</a>
                                 <div class="dropdown-menu" aria-labelledby="registerDropdown">
-                                    <a class="dropdown-item" href="/register/lecturer">Register Lecturer</a>
-                                    <a class="dropdown-item" href="/register/student">Register Student</a>
-                                    <a class="dropdown-item" href="/register/subject">Register Subject</a>
+                                    <a class="dropdown-item" href="/admin/register/lecturer">Register Lecturer</a>
+                                    <a class="dropdown-item" href="/admin/register/student">Register Student</a>
+                                    <a class="dropdown-item" href="/admin/register/subject">Register Subject</a>
                                 </div>
                             </li>
                         </ul>
