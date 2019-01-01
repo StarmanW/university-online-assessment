@@ -35,17 +35,16 @@ namespace university_online_assessment.Views.Student
                 if (assessment.type == 0)
                 {
                     List<Question> questions = assessment.Question.ToList();
+                    String[] MCQ = {
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                    };
 
                     // Iterate and display questions
                     for (int i = 0; i < questions.Count; i++)
                     {
-                        String[] MCQ = {
-                            "A",
-                            "B",
-                            "C",
-                            "D"
-                        };
-
                         Label quesNoLbl = new Label();
                         quesNoLbl.Text = $"Question No.{i + 1}";
                         questionPlaceHolder.Controls.Add(quesNoLbl);

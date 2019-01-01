@@ -41,8 +41,6 @@ namespace university_online_assessment.Views.Lecturer
             {
                 Response.Redirect("/");
             }
-
-
         }
 
         protected void createAssessBtn_Click(object sender, EventArgs e)

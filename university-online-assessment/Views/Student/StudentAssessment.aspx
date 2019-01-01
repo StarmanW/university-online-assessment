@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentAssessment.aspx.cs" Inherits="university_online_assessment.Views.Student.StudentAssessment" %>
 
-<asp:Content ID="assessmentQuestionSection" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="assessmentQuestionContent" ContentPlaceHolderID="MainContent" runat="server">
     <section id="asmntSection" style="min-height: 100vh">
         <div class="container bg-light">
             <div class="row">

@@ -217,7 +217,7 @@
     <Content Include="Views\Lecturer\MarkAssessmentList.aspx" />
     <Content Include="Views\Lecturer\PreCreateAssessment.aspx" />
     <Content Include="Views\Lecturer\LecturerViewList.aspx" />
-    <Content Include="Views\Lecturer\MarkStudentAssessment.aspx" />
+    <Content Include="Views\Lecturer\MarkWrittenAssessment.aspx" />
     <Content Include="Views\Lecturer\StudentAssessmentsList.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Admin\RegisterStudent.aspx" />
@@ -414,12 +414,12 @@
     <Compile Include="Views\Lecturer\LecturerViewList.aspx.designer.cs">
       <DependentUpon>LecturerViewList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Lecturer\MarkStudentAssessment.aspx.cs">
-      <DependentUpon>MarkStudentAssessment.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\MarkWrittenAssessment.aspx.cs">
+      <DependentUpon>MarkWrittenAssessment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Lecturer\MarkStudentAssessment.aspx.designer.cs">
-      <DependentUpon>MarkStudentAssessment.aspx</DependentUpon>
+    <Compile Include="Views\Lecturer\MarkWrittenAssessment.aspx.designer.cs">
+      <DependentUpon>MarkWrittenAssessment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Lecturer\StudentAssessmentsList.aspx.cs">
       <DependentUpon>StudentAssessmentsList.aspx</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentViewList.aspx.cs" Inherits="university_online_assessment.Views.Student.StudentViewList" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="studentViewListContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <script type="text/javascript">
         // JS scripts for remembering previously active tab
@@ -155,4 +155,50 @@
     <asp:HiddenField ID="hfTab" runat="server" />
 
 
+    <script>
+        // IIFE (Immediately Invoked Function Expression)
+        (function () {
+            // Select the search input box for each of the table list
+            const currentAsmntSearchBox = document.querySelector('input#currentAsmntSearchBox'),
+                pastAsmntSearchBox = document.querySelector('input#pastAsmntSearchBox'),
+                ID = [
+                    'displayCurrentAssessmentList',
+                    'displayPastAssessmentList'
+                ];
+
+            // Filter current asssessment list function
+            function filterCurrentAssessment(e) {
+                const progTable = document.querySelector(`[id*="${ID[0]}"]`).firstElementChild.children;
+
+                Array.from(progTable).forEach((v, i) => {
+                    if (v.className === '') {
+                        if (v.innerText.toLowerCase().indexOf(currentAsmntSearchBox.value.toLowerCase()) !== -1) {
+                            v.style.removeProperty('display');
+                        } else {
+                            v.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            // Filter pass assessment list function
+            function filterPastAssessment(e) {
+                const lectTable = document.querySelector(`[id*="${ID[1]}"]`).firstElementChild.children;
+
+                Array.from(lectTable).forEach((v, i) => {
+                    if (v.className === '') {
+                        if (v.innerText.toLowerCase().indexOf(pastAsmntSearchBox.value.toLowerCase()) !== -1) {
+                            v.style.removeProperty('display');
+                        } else {
+                            v.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            // Add event listeners to each search box
+            currentAsmntSearchBox.addEventListener('input', filterCurrentAssessment);
+            pastAsmntSearchBox.addEventListener('input', filterPastAssessment);
+        })();
+    </script>
 </asp:Content>

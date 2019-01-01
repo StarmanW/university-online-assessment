@@ -14,6 +14,7 @@
 #homepageSection .container,
 #preCreateAssessmentSection .container,
 #createAssessmentSection .container,
+#editAssessmentSection .container,
 #registerStudSection .container,
 #registerSubjectSection .container,
 #registerLecturerSection .container {
@@ -27,6 +28,7 @@
 }
 
 #createAssessmentSection,
+#editAssessmentSection,
 #displayAsmntSection,
 #preCreateAssessmentSection {
     background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
