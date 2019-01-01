@@ -185,6 +185,14 @@ namespace university_online_assessment.Views.Student
                     // Get the list of questions
                     List<Question> questions = assessment.Question.ToList();
 
+                    // Create new student assessment record
+                    Student_Assessment student_Assessment = new Student_Assessment();
+                    student_Assessment.Id = Guid.NewGuid();
+                    student_Assessment.studentId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    student_Assessment.assessmentId = assessment.Id;
+                    student_Assessment.dateFinished = DateTime.Now;
+                    student_Assessment.score = 0;
+
                     // Loop through the list of questions
                     for (int i = 0; i < questions.Count; i++)
                     {
@@ -197,6 +205,9 @@ namespace university_online_assessment.Views.Student
                         db.Student_Answer.Add(student_Answer);
                         db.SaveChanges();
                     }
+
+                    db.Student_Assessment.Add(student_Assessment);
+                    db.SaveChanges();
                 }
 
                 Session["assessCompleted"] = "1";

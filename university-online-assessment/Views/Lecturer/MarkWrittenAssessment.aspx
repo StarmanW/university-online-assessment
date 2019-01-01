@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MarkStudentAssessment.aspx.cs" Inherits="university_online_assessment.Views.Lecturer.StudentAssessment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MarkWrittenAssessment.aspx.cs" Inherits="university_online_assessment.Views.Lecturer.StudentAssessment" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <section id="createAssessmentSection">
