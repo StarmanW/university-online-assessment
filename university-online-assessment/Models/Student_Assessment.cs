@@ -11,7 +11,7 @@ namespace university_online_assessment.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Student_Assessment
     {
         public System.Guid Id { get; set; }
@@ -19,8 +19,28 @@ namespace university_online_assessment.Models
         public System.Guid assessmentId { get; set; }
         public int score { get; set; }
         public System.DateTime dateFinished { get; set; }
-    
+
         public virtual aspnet_Users aspnet_Users { get; set; }
         public virtual Assessment Assessment { get; set; }
+
+        public String getGrade()
+        {
+            String grade = "Not graded";
+
+            int score = this.score;
+
+            if (score >= 80)
+                grade = "A";
+            else if (score >= 60 && score <= 79)
+                grade = "B";
+            else if (score >= 50 && score <= 59)
+                grade = "C";
+            else if (score >= 40 && score <= 49)
+                grade = "D";
+            else if (score >= 0 && score <= 39)
+                grade = "F";
+
+            return grade;
+        }
     }
 }
