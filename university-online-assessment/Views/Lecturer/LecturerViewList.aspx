@@ -71,8 +71,8 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View/Mark" HeaderStyle-ForeColor="White" SortExpression="firstName">
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" NavigateUrl="#" Text="View" CssClass="btn btn-outline-primary" />
-                                    <asp:HyperLink runat="server" NavigateUrl="#" Text="Mark" CssClass="btn btn-outline-success" />
+                                    <a href="#" class="btn btn-outline-primary">Edit</a>
+                                    <a href="/lecturer/list/assessment/<%# Item.assessmentId %>" class="btn btn-outline-success">Mark</a>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

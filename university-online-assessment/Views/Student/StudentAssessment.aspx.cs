@@ -191,7 +191,7 @@ namespace university_online_assessment.Views.Student
                     student_Assessment.studentId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     student_Assessment.assessmentId = assessment.Id;
                     student_Assessment.dateFinished = DateTime.Now;
-                    student_Assessment.score = 0;
+                    student_Assessment.score = -1;
 
                     // Loop through the list of questions
                     for (int i = 0; i < questions.Count; i++)
