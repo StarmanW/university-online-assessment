@@ -55,40 +55,6 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Name</th>
-                        <th>Grade</th>
-                        <th>View/Mark</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>18WMR12048</td>
-                        <td>Samuel Wong Kim Foong</td>
-                        <td>None</td>
-                        <td>
-                            <asp:HyperLink runat="server" ID="markBtn" NavigateUrl="/lecturer/list/assessment/student/mark" Text="Mark" CssClass="btn btn-outline-primary"></asp:HyperLink></td>
-                    </tr>
-                    <tr>
-                        <td>18WMR12658</td>
-                        <td>Chong Jia Herng</td>
-                        <td>A</td>
-                        <td>
-                            <asp:HyperLink runat="server" ID="HyperLink1" NavigateUrl="#" Text="Mark" CssClass="btn btn-outline-primary"></asp:HyperLink></td>
-                    </tr>
-                    <tr>
-                        <td>18WBU32687</td>
-                        <td>Thiban Kumar</td>
-                        <td>A</td>
-                        <td>
-                            <asp:HyperLink runat="server" ID="HyperLink2" NavigateUrl="#" Text="Mark" CssClass="btn btn-outline-primary"></asp:HyperLink></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </section>
 </asp:Content>
