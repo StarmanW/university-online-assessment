@@ -1,10 +1,21 @@
-﻿<%@ Page Title="View/Edit Assessment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditAssessment.aspx.cs" Inherits="university_online_assessment.Views.Lecturer.EditAssessment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditAssessment.aspx.cs" Inherits="university_online_assessment.Views.Lecturer.EditAssessment" %>
 
 <asp:Content ID="editAssessmentContent" ContentPlaceHolderID="MainContent" runat="server">
     <section id="editAssessmentSection">
         <div class="container bg-light">
             <div class="row">
                 <div class="col-md-10 mx-auto pt-3">
+                    <%--Successful update alert--%>
+                    <asp:PlaceHolder runat="server" ID="updateStatus" Visible="false">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            The assessment has been successfully updated!
+                        </div>
+                    </asp:PlaceHolder>
+
                     <h3 class="text-center">Assessment for
                         <asp:Label runat="server" ID="subjectLbl"></asp:Label></h3>
 

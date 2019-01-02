@@ -3,7 +3,8 @@
     min-height: 100vh;
 }
 
-#AdminListContent,
+#adminListContent,
+#PageNotFoundSection,
 #loginSection {
     min-height: 100vh;
     background: url("Images/citc2.png") no-repeat center center fixed;
@@ -23,13 +24,17 @@
 }
 
 #displayAsmntSection .container,
-#asmntSection .container {
+#asmntSection .container,
+#markAssessmentListSection .container,
+#adminListContent .container {
     min-height: 100vh;
 }
 
 #createAssessmentSection,
 #editAssessmentSection,
 #displayAsmntSection,
+#markAssessmentListSection,
+#studAssessListSection,
 #preCreateAssessmentSection {
     background: url('../Content/Images/kelli-tungay-324329-unsplash.jpg') no-repeat center center fixed;
     background-size: cover;

@@ -27,6 +27,8 @@ namespace university_online_assessment.Views.Student
             {
                 Assessment assessment = db.Assessment.Find(Guid.Parse(assessID));
 
+                Page.Title = assessment.assessName;
+
                 // Set header name
                 subjectNameHeader.Text = assessment.Subject1.subjectName;
                 assessNameHeader.Text = assessment.assessName;

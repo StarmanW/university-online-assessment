@@ -14,8 +14,8 @@
         });
     </script>
 
-    <section id="AdminListContent" style="min-height: 100vh">
-        <div class="container">
+    <section id="adminListContent" style="min-height: 100vh">
+        <div class="container bg-light">
             <nav class="pt-5">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-students-tab" data-toggle="tab" href="#nav-students" role="tab" aria-controls="nav-students" aria-selected="true">Students</a>

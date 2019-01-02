@@ -83,7 +83,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View/Mark" HeaderStyle-ForeColor="White">
                                 <ItemTemplate>
-                                    <a href="#" class="btn btn-outline-primary">Edit</a>
+                                    <a href="/lecturer/assessment/<%# Item.assessmentId %>/edit" class="btn btn-outline-primary">Edit</a>
                                     <a href="/lecturer/list/assessment/<%# Item.assessmentId %>" class="btn btn-outline-success">Mark</a>
                                 </ItemTemplate>
                             </asp:TemplateField>

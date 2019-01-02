@@ -29,6 +29,8 @@ namespace university_online_assessment.Views.Lecturer
             {
                 Assessment assessment = db.Assessment.Find(Guid.Parse(assessID));
 
+                Page.Title = $"Edit {assessment.assessName}";
+
                 // Get the subject dropdown list
                 DropDownList subjectDrpDwnList = subject;
 
@@ -262,6 +264,7 @@ namespace university_online_assessment.Views.Lecturer
                         db.SaveChanges();
                     }
                 }
+                updateStatus.Visible = true;
             }
         }
     }
