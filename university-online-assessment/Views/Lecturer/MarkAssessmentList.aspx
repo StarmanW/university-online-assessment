@@ -50,7 +50,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="View/Mark" HeaderStyle-ForeColor="White">
                         <ItemTemplate>
-                            <a href="/lecturer/list/assessment/student/mark/<%# Item.assessmentId %>/<%# Item.studentId %>" class="btn btn-outline-primary">View/Mark</a>
+                            <a href="/lecturer/list/assessment/<%# Item.assessmentId %>/<%# Item.studentId %>/mark" class="btn btn-outline-primary">View/Mark</a>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
