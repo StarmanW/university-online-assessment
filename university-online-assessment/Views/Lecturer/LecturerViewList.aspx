@@ -48,6 +48,7 @@
                         <input type="text" id="assessSearchBox" class="form-control" />
                     </div>
 
+
                     <%--Table for assessments list--%>
                     <asp:GridView runat="server"
                         ID="displayLectAssessGrid"
@@ -135,7 +136,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View Assessments" HeaderStyle-ForeColor="White">
                                 <ItemTemplate>
-                                    <a href="/lecturer/list/student/<%# $"{Item.studId}" %>" class="btn btn-outline-primary">View</a>
+                                    <asp:HyperLink runat="server" NavigateUrl="/lecturer/list/student/assessment" Text="View" CssClass="btn btn-outline-primary" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
