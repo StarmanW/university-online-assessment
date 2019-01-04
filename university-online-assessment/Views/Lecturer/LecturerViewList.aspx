@@ -136,7 +136,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View Assessments" HeaderStyle-ForeColor="White">
                                 <ItemTemplate>
-                                    <asp:HyperLink runat="server" NavigateUrl="/lecturer/list/student/assessment" Text="View" CssClass="btn btn-outline-primary" />
+                                    <a href="/lecturer/list/student/<%# Item.studId  %>" class="btn btn-outline-primary">View</a>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

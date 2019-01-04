@@ -17,6 +17,46 @@
                 <input type="text" id="assessSearchBox" class="form-control" />
             </div>
 
+           <%--Table for assessments list--%>
+            <asp:GridView runat="server"
+                ID="displayStudentAssessmentList"
+                EmptyDataText="No assessment found."
+                GridLines="None"
+                CssClass="table mt-4"
+                HeaderStyle-CssClass="thead-dark"
+                PagerStyle-CssClass="pagination-ys"
+                ItemType="university_online_assessment.Models.Student_Assessment"
+                DataKeyNames="Id"
+                AllowSorting="true"
+                AllowPaging="true"
+                PageSize="10"
+                AutoGenerateColumns="false"
+                SelectMethod="displayStudentAssessmentList_GetData">
+                <Columns>
+                    <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="assessName">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# $"{Item.Assessment.assessName}" %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Subject" HeaderStyle-ForeColor="White" SortExpression="subjectName">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# $"{Item.Assessment.Subject1.subjectName}" %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Type" HeaderStyle-ForeColor="White" SortExpression="type">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# $"{Item.Assessment.type}" %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Grade" HeaderStyle-ForeColor="White" SortExpression="type">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# $"{Item.getGrade()}" %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                </Columns>
+            </asp:GridView>
+
             <%--Table for assessments list--%>
             <table class="table">
                 <thead class="thead-dark">
