@@ -33,7 +33,7 @@ namespace university_online_assessment
             routes.MapPageRoute("CreateQuestion", "lecturer/assessment/create", "~/Views/Lecturer/CreateAssessment.aspx");
             routes.MapPageRoute("LecturerViewList", "lecturer/list", "~/Views/Lecturer/LecturerViewList.aspx");
             routes.MapPageRoute("EditAssessment", "lecturer/assessment/{id}/edit", "~/Views/Lecturer/EditAssessment.aspx");
-            routes.MapPageRoute("StudentAssessmentList", "lecturer/list/student/assessment", "~/Views/Lecturer/StudentAssessmentsList.aspx");
+            routes.MapPageRoute("StudentAssessmentList", "lecturer/list/student/{id}", "~/Views/Lecturer/StudentAssessmentsList.aspx");
             routes.MapPageRoute("MarkAssessmentList", "lecturer/list/assessment/{id}", "~/Views/Lecturer/MarkAssessmentList.aspx");
             routes.MapPageRoute("MarkWrittenAssessment", "lecturer/list/assessment/{id}/{studId}/mark", "~/Views/Lecturer/MarkWrittenAssessment.aspx");
 
