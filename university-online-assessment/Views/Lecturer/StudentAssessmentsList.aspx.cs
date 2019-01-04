@@ -10,11 +10,31 @@ namespace university_online_assessment.Views.Lecturer
 {
     public partial class StudentAssessmentsList : System.Web.UI.Page
     {
-        private OnlineAssessmentDBEntities db;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            db = new OnlineAssessmentDBEntities();
+            String studID = "";
+            try
+            {
+                studID = Page.RouteData.Values["id"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("/lecturer/list");
+            }
+
+            using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
+            {
+                Guid studIDParsed = Guid.Parse(studID);
+                aspnet_Users student = db.aspnet_Users.Find(studIDParsed);
+                if (student != null)
+                {
+                    studInfoHeader.Text = $"{student.Student_Profile.firstName} {student.Student_Profile.lastName} - {student.UserName}";
+                }
+                else
+                {
+                    Response.Redirect("/lecturer/list");
+                }
+            }
         }
 
         // The return type can be changed to IEnumerable, however to support
@@ -23,21 +43,21 @@ namespace university_online_assessment.Views.Lecturer
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<university_online_assessment.Models.Student_Assessment> displayStudentAssessmentList_GetData()
+        public IQueryable<university_online_assessment.Models.Student_Assessment> displayStudAssessList_GetData()
         {
-            String studentID = "";
-            Guid studentIDGuid = Guid.Empty;
+            String studID = "";
             try
             {
-                studentID = Page.RouteData.Values["id"].ToString();
-                studentIDGuid = Guid.Parse(studentID);
+                studID = Page.RouteData.Values["id"].ToString();
             }
             catch (Exception)
             {
                 Response.Redirect("/lecturer/list");
             }
 
-            return db.Student_Assessment.Where(sa => sa.studentId == studentIDGuid);
+            OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities();
+            Guid studIDParsed = Guid.Parse(studID);
+            return db.Student_Assessment.Where(sa => sa.studentId == studIDParsed);
         }
     }
 }
