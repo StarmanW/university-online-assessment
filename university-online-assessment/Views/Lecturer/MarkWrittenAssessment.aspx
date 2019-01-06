@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MarkWrittenAssessment.aspx.cs" Inherits="university_online_assessment.Views.Lecturer.StudentAssessment" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <section id="createAssessmentSection">
+<asp:Content ID="MarkWrittenAssessmentContent" ContentPlaceHolderID="MainContent" runat="server">
+    <section id="markWrittenAssessmentSection">
         <div class="container bg-light">
             <div class="row">
                 <div class="col-md-10 mx-auto pt-3">

@@ -13,6 +13,15 @@ namespace university_online_assessment.Views.Lecturer {
     public partial class MarkAssessmentList {
         
         /// <summary>
+        /// assessName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label assessName;
+        
+        /// <summary>
         /// displayStudentAssessmentList control.
         /// </summary>
         /// <remarks>

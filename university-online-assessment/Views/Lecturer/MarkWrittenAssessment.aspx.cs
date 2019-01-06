@@ -14,12 +14,12 @@ namespace university_online_assessment.Views.Lecturer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String assessID = "";
-            String studID = "";
+            Guid assessID = Guid.Empty;
+            string studID = "";
 
             try
             {
-                assessID = Page.RouteData.Values["id"].ToString();
+                assessID = Guid.Parse(Page.RouteData.Values["id"].ToString());
                 studID = Page.RouteData.Values["studId"].ToString();
             }
             catch (Exception)
@@ -27,12 +27,14 @@ namespace university_online_assessment.Views.Lecturer
                 Response.Redirect("/lecturer/list");
             }
 
-            Guid assessIDGuid = Guid.Parse(assessID);
-            Guid studIDGuid = Guid.Parse(studID);
-
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
-                Student_Assessment studAssess = db.Student_Assessment.Where(sa => sa.studentId == studIDGuid && sa.assessmentId == assessIDGuid).FirstOrDefault();
+                Student_Assessment studAssess = db.Student_Assessment.Where(sa => sa.aspnet_Users.LoweredUserName.Equals(studID.ToLower()) && sa.assessmentId == assessID).FirstOrDefault();
+
+                if (studAssess is null)
+                {
+                    Response.Redirect("/lecturer/list");
+                }
 
                 Page.Title = $"{ studAssess.aspnet_Users.Student_Profile.firstName } { studAssess.aspnet_Users.Student_Profile.lastName } { studAssess.Assessment.assessName }";
 
@@ -93,12 +95,13 @@ namespace university_online_assessment.Views.Lecturer
             // Variables declaration
             double totalMark = 0.0;
             Guid assessID = Guid.Empty;
-            Guid studID = Guid.Empty;
+            string studID = "";
+
 
             try
             {
                 assessID = Guid.Parse(Page.RouteData.Values["id"].ToString());
-                studID = Guid.Parse(Page.RouteData.Values["studId"].ToString());
+                studID = Page.RouteData.Values["studId"].ToString();
             }
             catch (Exception)
             {
@@ -107,7 +110,13 @@ namespace university_online_assessment.Views.Lecturer
 
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
-                Student_Assessment studAssess = db.Student_Assessment.Where(sa => sa.studentId == studID && sa.assessmentId == assessID).FirstOrDefault();
+                Student_Assessment studAssess = db.Student_Assessment.Where(sa => sa.aspnet_Users.LoweredUserName.Equals(studID.ToLower()) && sa.assessmentId == assessID).FirstOrDefault();
+
+                if (studAssess is null)
+                {
+                    Response.Redirect("/lecturer/list");
+                }
+
                 List<Question> questions = studAssess.Assessment.Question.ToList();
 
                 // Iterate and display questions

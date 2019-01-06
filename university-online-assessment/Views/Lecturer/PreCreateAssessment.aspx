@@ -5,8 +5,20 @@
         <div class="container bg-light">
             <div class="row">
                 <div class="col-md-8 mx-auto pt-5">
+
+                    <%--Assessment already exist alert--%>
+                    <asp:PlaceHolder runat="server" ID="alertPlaceholder" Visible="false">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            The same assessment "<asp:Label runat="server" ID="assessNameLbl" />" has already been created before.
+                        </div>
+                    </asp:PlaceHolder>
+
                     <h1 class="text-center">Create new Assessment</h1>
-                    
+
                     <%--Assessment Type--%>
                     <div class="form-group">
                         <label>Assessment Type:</label>
@@ -29,6 +41,13 @@
                         <asp:RegularExpressionValidator runat="server" SetFocusOnError="true" ErrorMessage="Please select the correct assessment publicity." Display="Dynamic" ForeColor="Red" ControlToValidate="assessPublicity" ValidationExpression="^[0-1]$"></asp:RegularExpressionValidator>
                     </div>
 
+                    <%--Assessment Name--%>
+                    <div class="form-group">
+                        <label for="assessName">Assessment Name:</label>
+                        <asp:TextBox runat="server" ID="assessName" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="assessName" Display="Dynamic" ErrorMessage="Please ensure the assessment name is entered."></asp:RequiredFieldValidator>
+                    </div>
+
                     <%--Subject--%>
                     <div class="form-group">
                         <label for="subject">Subject</label>
@@ -36,7 +55,7 @@
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator runat="server" ForeColor="Red" SetFocusOnError="true" ControlToValidate="subject" Display="Dynamic" ErrorMessage="Please ensure the subject is selected."></asp:RequiredFieldValidator>
                     </div>
-                    
+
                     <%--No. of Question--%>
                     <div class="form-group">
                         <label>No. of Questions:</label>

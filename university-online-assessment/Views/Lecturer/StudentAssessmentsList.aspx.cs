@@ -12,20 +12,19 @@ namespace university_online_assessment.Views.Lecturer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String studID = "";
-            try
-            {
-                studID = Page.RouteData.Values["id"].ToString();
-            }
-            catch (Exception)
-            {
-                Response.Redirect("/lecturer/list");
-            }
-
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
-                Guid studIDParsed = Guid.Parse(studID);
-                aspnet_Users student = db.aspnet_Users.Find(studIDParsed);
+                string studID = "";
+                try
+                {
+                    studID = Page.RouteData.Values["id"].ToString();
+                }
+                catch (Exception)
+                {
+                    Response.Redirect("/lecturer/list");
+                }
+
+                aspnet_Users student = db.aspnet_Users.Where(s => s.LoweredUserName.Equals(studID.ToLower())).FirstOrDefault();
                 if (student != null)
                 {
                     studInfoHeader.Text = $"{student.Student_Profile.firstName} {student.Student_Profile.lastName} - {student.UserName}";
@@ -45,7 +44,7 @@ namespace university_online_assessment.Views.Lecturer
         //     string sortByExpression
         public IQueryable<university_online_assessment.Models.Student_Assessment> displayStudAssessList_GetData()
         {
-            String studID = "";
+            string studID = "";
             try
             {
                 studID = Page.RouteData.Values["id"].ToString();
@@ -56,8 +55,7 @@ namespace university_online_assessment.Views.Lecturer
             }
 
             OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities();
-            Guid studIDParsed = Guid.Parse(studID);
-            return db.Student_Assessment.Where(sa => sa.studentId == studIDParsed);
+            return db.Student_Assessment.Where(sa => sa.aspnet_Users.LoweredUserName.Equals(studID.ToLower()));
         }
     }
 }

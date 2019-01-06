@@ -24,11 +24,6 @@ namespace university_online_assessment.Views.Student
             }
         }
 
-        protected void btnViewAsmnt_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/student/assessment");
-        }
-
         protected void displayCurrentAssessmentList_Sorted(object sender, EventArgs e)
         {
             hfTab.Value = "nav-current-assessments";

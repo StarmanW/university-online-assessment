@@ -13,6 +13,24 @@ namespace university_online_assessment.Views.Lecturer {
     public partial class PreCreateQuestion {
         
         /// <summary>
+        /// alertPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder alertPlaceholder;
+        
+        /// <summary>
+        /// assessNameLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label assessNameLbl;
+        
+        /// <summary>
         /// assessType control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace university_online_assessment.Views.Lecturer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList assessPublicity;
+        
+        /// <summary>
+        /// assessName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox assessName;
         
         /// <summary>
         /// subject control.

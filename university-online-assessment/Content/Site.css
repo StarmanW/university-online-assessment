@@ -15,6 +15,7 @@
 #homepageSection .container,
 #preCreateAssessmentSection .container,
 #createAssessmentSection .container,
+#markWrittenAssessmentSection .container,
 #editAssessmentSection .container,
 #registerStudSection .container,
 #registerSubjectSection .container,
@@ -26,11 +27,13 @@
 #displayAsmntSection .container,
 #asmntSection .container,
 #markAssessmentListSection .container,
+#studAssessListSection .container,
 #adminListContent .container {
     min-height: 100vh;
 }
 
 #createAssessmentSection,
+#markWrittenAssessmentSection,
 #editAssessmentSection,
 #displayAsmntSection,
 #markAssessmentListSection,

@@ -3,9 +3,10 @@
 <asp:Content ID="markAssessmentList" ContentPlaceHolderID="MainContent" runat="server">
     <section id="markAssessmentListSection" style="min-height: 100vh">
         <div class="container bg-light">
-            <h2 class="text-center pt-4">Students List for
+            <h2 class="text-center pt-4">Students List for Asssessment
                 <br />
-                Asssessment "Chapter 1 Intro to ASP.NET"</h2>
+                "<asp:Label runat="server" ID="assessName"></asp:Label>"
+            </h2>
             <hr />
 
             <%--Back to View List link--%>
@@ -33,14 +34,14 @@
                 AutoGenerateColumns="false"
                 SelectMethod="displayStudentAssessmentList_GetData">
                 <Columns>
-                    <asp:TemplateField HeaderText="Assessment Name" HeaderStyle-ForeColor="White" SortExpression="assessName">
-                        <ItemTemplate>
-                            <asp:Label Text='<%# $"{Item.Assessment.assessName}" %>' runat="server"></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="subjectName">
                         <ItemTemplate>
                             <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Student Name" HeaderStyle-ForeColor="White" SortExpression="assessName">
+                        <ItemTemplate>
+                            <asp:Label Text='<%# $"{Item.aspnet_Users.Student_Profile.firstName} {Item.aspnet_Users.Student_Profile.lastName}" %>' runat="server"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Grade" HeaderStyle-ForeColor="White" SortExpression="type">
@@ -50,7 +51,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="View/Mark" HeaderStyle-ForeColor="White">
                         <ItemTemplate>
-                            <a href="/lecturer/list/assessment/<%# Item.assessmentId %>/<%# Item.studentId %>/mark" class="btn btn-outline-primary">View/Mark</a>
+                            <a href="/lecturer/list/assessment/<%# Item.assessmentId %>/<%# Item.aspnet_Users.UserName %>/mark" class="btn btn-outline-primary">View/Mark</a>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

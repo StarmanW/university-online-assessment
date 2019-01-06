@@ -106,7 +106,7 @@ namespace university_online_assessment.Views.Lecturer
                 // Create the new assessment record
                 Assessment newAssess = new Assessment();
                 newAssess.Id = Guid.NewGuid();
-                newAssess.assessName = assessName.Text;
+                newAssess.assessName = Session["newAssessName"].ToString();
                 newAssess.subject = Guid.Parse(Session["subject"].ToString());
                 newAssess.type = Convert.ToInt32(Session["assessType"]);
                 newAssess.publicity = Convert.ToInt16(Session["publicity"]);

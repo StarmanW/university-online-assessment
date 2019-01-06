@@ -13,10 +13,10 @@ namespace university_online_assessment.Views.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String assessID = "";
+            Guid assessID = Guid.Empty;
             try
             {
-                assessID = Page.RouteData.Values["id"].ToString();
+                assessID = Guid.Parse(Page.RouteData.Values["id"].ToString());
             }
             catch (Exception)
             {
@@ -25,7 +25,12 @@ namespace university_online_assessment.Views.Student
 
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
-                Assessment assessment = db.Assessment.Find(Guid.Parse(assessID));
+                Assessment assessment = db.Assessment.Find(assessID);
+
+                if (assessment == null)
+                {
+                    Response.Redirect("/student/list");
+                }
 
                 Page.Title = assessment.assessName;
 

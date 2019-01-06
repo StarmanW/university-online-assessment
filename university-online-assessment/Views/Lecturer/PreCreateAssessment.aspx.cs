@@ -45,11 +45,30 @@ namespace university_online_assessment.Views.Lecturer
 
         protected void createAssessBtn_Click(object sender, EventArgs e)
         {
-            Session.Add("assessType", assessType.SelectedItem.Value);
-            Session.Add("publicity", assessPublicity.SelectedItem.Value);
-            Session.Add("subject", subject.SelectedItem.Value);
-            Session.Add("quesNum", quesNum.Text);
-            Response.Redirect("/lecturer/assessment/create");
+            using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
+            {
+                Guid subjectID = Guid.Parse(subject.SelectedItem.Value);
+                int publicity = Convert.ToInt16(assessPublicity.SelectedItem.Value);
+                int type = Convert.ToInt16(assessType.SelectedItem.Value);
+
+                Assessment assessment = db.Assessment.Where(a => a.Subject1.Id == subjectID && a.publicity == publicity && a.type == type && a.assessName.Equals(assessName.Text)).FirstOrDefault();
+
+                // Check if assessment already exist
+                if (assessment != null)
+                {
+                    assessNameLbl.Text = assessment.assessName;
+                    alertPlaceholder.Visible = true;
+                }
+                else
+                {
+                    Session.Add("assessType", assessType.SelectedItem.Value);
+                    Session.Add("publicity", assessPublicity.SelectedItem.Value);
+                    Session.Add("subject", subject.SelectedItem.Value);
+                    Session.Add("quesNum", quesNum.Text);
+                    Session.Add("newAssessName", assessName.Text);
+                    Response.Redirect("/lecturer/assessment/create");
+                }
+            }
         }
     }
 }
