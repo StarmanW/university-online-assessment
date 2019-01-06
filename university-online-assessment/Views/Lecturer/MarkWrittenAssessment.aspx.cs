@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -84,6 +86,72 @@ namespace university_online_assessment.Views.Lecturer
                     questionPlaceHolder.Controls.Add(new LiteralControl("</div>"));
                 }
             }
+        }
+
+        protected void submitBtn_Click(object sender, EventArgs e)
+        {
+            // Variables declaration
+            double totalMark = 0.0;
+            Guid assessID = Guid.Empty;
+            Guid studID = Guid.Empty;
+
+            try
+            {
+                assessID = Guid.Parse(Page.RouteData.Values["id"].ToString());
+                studID = Guid.Parse(Page.RouteData.Values["studId"].ToString());
+            }
+            catch (Exception)
+            {
+                Response.Redirect("/lecturer/list");
+            }
+
+            using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
+            {
+                Student_Assessment studAssess = db.Student_Assessment.Where(sa => sa.studentId == studID && sa.assessmentId == assessID).FirstOrDefault();
+                List<Question> questions = studAssess.Assessment.Question.ToList();
+
+                // Iterate and display questions
+                for (int i = 0; i < questions.Count; i++)
+                {
+                    TextBox markTxtBox = questionPlaceHolder.FindControl($"writtenAns_qm{i + 1}") as TextBox;
+                    totalMark += Convert.ToDouble(markTxtBox.Text);
+                }
+
+                // Calculate final mark
+                totalMark /= Convert.ToDouble(questions.Count);
+
+                studAssess.score = Convert.ToInt16(totalMark);
+                db.SaveChanges();
+
+                // Display label
+                totalMarkLbl.Text = $"{Convert.ToInt16(totalMark).ToString()} ({studAssess.getGrade()})";
+                alertPlaceholder.Visible = true;
+
+                // Send an email of the score to student
+                sendEmailToStudent(studAssess);
+            }
+        }
+
+        // Method to send email to student
+        private void sendEmailToStudent(Student_Assessment studAssess)
+        {
+            // Create an SMTP client server object to connect to hotmail server
+            SmtpClient smtpServer = new SmtpClient("smtp.live.com");
+            smtpServer.Port = 587;
+            smtpServer.UseDefaultCredentials = false;
+            smtpServer.Credentials = new System.Net.NetworkCredential("tarconlineassessment@hotmail.com", "%TGB6yhn^YHN5tgb");
+            smtpServer.EnableSsl = true;
+
+            // Create new MailMessage object to send an email
+            MailMessage mailMessage = new MailMessage();
+            mailMessage.IsBodyHtml = true;
+            mailMessage.Subject = $"Score for assessment {studAssess.Assessment.assessName}";
+            mailMessage.From = new MailAddress("tarconlineassessment@hotmail.com");
+            mailMessage.To.Add(studAssess.aspnet_Users.aspnet_Membership.Email);
+            mailMessage.Body = $"Your assessment for \"{studAssess.Assessment.Subject1.subjectName} - {studAssess.Assessment.assessName}\" has just been graded!<br/>Your score is {studAssess.score} ({studAssess.getGrade()}).";
+
+            // Send the email
+            smtpServer.Send(mailMessage);
         }
     }
 }

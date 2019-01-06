@@ -13,6 +13,24 @@ namespace university_online_assessment.Views.Lecturer {
     public partial class StudentAssessment {
         
         /// <summary>
+        /// alertPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder alertPlaceholder;
+        
+        /// <summary>
+        /// totalMarkLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalMarkLbl;
+        
+        /// <summary>
         /// subjectLbl control.
         /// </summary>
         /// <remarks>
