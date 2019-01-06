@@ -24,6 +24,11 @@ namespace university_online_assessment.Views.Lecturer
             String subject = (String)Session["subject"];
             int quesNum = Convert.ToInt32(Session["quesNum"]);
 
+            if (assessType == null || subject == null)
+            {
+                Response.Redirect("/lecturer/assessment/pre_create");
+            }
+
             subjectLbl.Text = db.Subject.Find(Guid.Parse(subject)).subjectName;
 
             if (assessType.Equals("0"))
@@ -42,6 +47,15 @@ namespace university_online_assessment.Views.Lecturer
                     questionPlaceHolder.Controls.Add(new LiteralControl("<div class=\"form-group\">"));
                     questionPlaceHolder.Controls.Add(quesNoLbl);
                     questionPlaceHolder.Controls.Add(ques);
+
+                    RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+                    requiredFieldValidator.SetFocusOnError = true;
+                    requiredFieldValidator.ErrorMessage = "Please ensure the question field is not left blank";
+                    requiredFieldValidator.Display = ValidatorDisplay.Dynamic;
+                    requiredFieldValidator.ForeColor = System.Drawing.Color.Red;
+                    requiredFieldValidator.ControlToValidate = ques.ID;
+
+                    questionPlaceHolder.Controls.Add(requiredFieldValidator);
                     questionPlaceHolder.Controls.Add(new LiteralControl("<br />"));
 
                     // Generate 4 MCQ answer
@@ -57,7 +71,15 @@ namespace university_online_assessment.Views.Lecturer
                         CheckBox chkBox = new CheckBox();
                         chkBox.ID = $"isAns_{i + 1}_{j + 1}";
 
+                        RequiredFieldValidator requiredFieldValidator1 = new RequiredFieldValidator();
+                        requiredFieldValidator1.SetFocusOnError = true;
+                        requiredFieldValidator1.ErrorMessage = "Please ensure the answer field is not left blank";
+                        requiredFieldValidator1.Display = ValidatorDisplay.Dynamic;
+                        requiredFieldValidator1.ForeColor = System.Drawing.Color.Red;
+                        requiredFieldValidator1.ControlToValidate = answer.ID;
+
                         questionPlaceHolder.Controls.Add(answer);
+                        questionPlaceHolder.Controls.Add(requiredFieldValidator1);
                         questionPlaceHolder.Controls.Add(new LiteralControl("</div><div class=\"col-md-2\">"));
                         questionPlaceHolder.Controls.Add(chkBox);
                         questionPlaceHolder.Controls.Add(new LiteralControl("</div></div>"));
@@ -85,6 +107,13 @@ namespace university_online_assessment.Views.Lecturer
                     ques.Attributes.Add("placeholder", $"Enter written question no. {i + 1}");
                     ques.CssClass = "form-control";
 
+                    RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+                    requiredFieldValidator.SetFocusOnError = true;
+                    requiredFieldValidator.ErrorMessage = "Please ensure the question field is not left blank<br/>";
+                    requiredFieldValidator.Display = ValidatorDisplay.Dynamic;
+                    requiredFieldValidator.ForeColor = System.Drawing.Color.Red;
+                    requiredFieldValidator.ControlToValidate = ques.ID;
+
                     FileUpload quesImg = new FileUpload();
                     quesImg.ID = $"quesImg_{i + 1}";
                     quesImg.CssClass = "form-group";
@@ -92,6 +121,7 @@ namespace university_online_assessment.Views.Lecturer
                     questionPlaceHolder.Controls.Add(new LiteralControl("<div class=\"form-group\">"));
                     questionPlaceHolder.Controls.Add(quesNoLbl);
                     questionPlaceHolder.Controls.Add(ques);
+                    questionPlaceHolder.Controls.Add(requiredFieldValidator);
                     questionPlaceHolder.Controls.Add(quesImg);
                     questionPlaceHolder.Controls.Add(new LiteralControl("</div>"));
                 }

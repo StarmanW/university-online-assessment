@@ -15,10 +15,10 @@ namespace university_online_assessment.Views.Lecturer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String assessID = "";
+            Guid assessID = Guid.Empty;
             try
             {
-                assessID = Page.RouteData.Values["id"].ToString();
+                assessID = Guid.Parse(Page.RouteData.Values["id"].ToString());
             }
             catch (Exception)
             {
@@ -27,7 +27,12 @@ namespace university_online_assessment.Views.Lecturer
 
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
-                Assessment assessment = db.Assessment.Find(Guid.Parse(assessID));
+                Assessment assessment = db.Assessment.Find(assessID);
+
+                if (assessment == null)
+                {
+                    Response.Redirect("/lecturer/list");
+                }
 
                 Page.Title = $"Edit {assessment.assessName}";
 
@@ -91,9 +96,17 @@ namespace university_online_assessment.Views.Lecturer
                         ques.Text = questions[i].question1;
                         ques.CssClass = "form-control";
 
+                        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+                        requiredFieldValidator.SetFocusOnError = true;
+                        requiredFieldValidator.ErrorMessage = "Please ensure the question field is not left blank";
+                        requiredFieldValidator.Display = ValidatorDisplay.Dynamic;
+                        requiredFieldValidator.ForeColor = System.Drawing.Color.Red;
+                        requiredFieldValidator.ControlToValidate = ques.ID;
+
                         questionPlaceHolder.Controls.Add(new LiteralControl("<div class=\"form-group\">"));
                         questionPlaceHolder.Controls.Add(quesNoLbl);
                         questionPlaceHolder.Controls.Add(ques);
+                        questionPlaceHolder.Controls.Add(requiredFieldValidator);
                         questionPlaceHolder.Controls.Add(new LiteralControl("<br />"));
 
                         List<Answer> answers = questions[i].Answer.ToList();
@@ -115,7 +128,15 @@ namespace university_online_assessment.Views.Lecturer
                                 chkBox.Checked = true;
                             }
 
+                            RequiredFieldValidator requiredFieldValidator1 = new RequiredFieldValidator();
+                            requiredFieldValidator1.SetFocusOnError = true;
+                            requiredFieldValidator1.ErrorMessage = "Please ensure the answer field is not left blank";
+                            requiredFieldValidator1.Display = ValidatorDisplay.Dynamic;
+                            requiredFieldValidator1.ForeColor = System.Drawing.Color.Red;
+
+                            requiredFieldValidator1.ControlToValidate = answer.ID;
                             questionPlaceHolder.Controls.Add(answer);
+                            questionPlaceHolder.Controls.Add(requiredFieldValidator1);
                             questionPlaceHolder.Controls.Add(new LiteralControl("</div><div class=\"col-md-2\">"));
                             questionPlaceHolder.Controls.Add(chkBox);
                             questionPlaceHolder.Controls.Add(new LiteralControl("</div></div>"));
@@ -143,9 +164,17 @@ namespace university_online_assessment.Views.Lecturer
                         ques.Text = questions[i].question1;
                         ques.CssClass = "form-control";
 
+                        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+                        requiredFieldValidator.SetFocusOnError = true;
+                        requiredFieldValidator.ErrorMessage = "Please ensure the question field is not left blank<br/>";
+                        requiredFieldValidator.Display = ValidatorDisplay.Dynamic;
+                        requiredFieldValidator.ForeColor = System.Drawing.Color.Red;
+                        requiredFieldValidator.ControlToValidate = ques.ID;
+
                         questionPlaceHolder.Controls.Add(new LiteralControl("<div class=\"form-group\">"));
                         questionPlaceHolder.Controls.Add(quesNoLbl);
                         questionPlaceHolder.Controls.Add(ques);
+                        questionPlaceHolder.Controls.Add(requiredFieldValidator);
                         questionPlaceHolder.Controls.Add(new LiteralControl("<br/>"));
 
                         if (questions[i].imgPath != null)
@@ -167,10 +196,10 @@ namespace university_online_assessment.Views.Lecturer
 
         protected void updateBtn_Click(object sender, EventArgs e)
         {
-            String assessID = "";
+            Guid assessID = Guid.Empty;
             try
             {
-                assessID = Page.RouteData.Values["id"].ToString();
+                assessID = Guid.Parse(Page.RouteData.Values["id"].ToString());
             }
             catch (Exception)
             {
@@ -179,7 +208,13 @@ namespace university_online_assessment.Views.Lecturer
 
             using (OnlineAssessmentDBEntities db = new OnlineAssessmentDBEntities())
             {
-                Assessment assessment = db.Assessment.Find(Guid.Parse(assessID));
+                Assessment assessment = db.Assessment.Find(assessID);
+
+                if (assessment == null)
+                {
+                    Response.Redirect("/lecturer/list");
+                }
+
                 List<Question> questions = assessment.Question.ToList();
 
                 assessment.subject = Guid.Parse(subject.SelectedItem.Value);

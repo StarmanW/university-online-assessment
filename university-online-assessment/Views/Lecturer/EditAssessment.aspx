@@ -41,6 +41,7 @@
                     <div class="form-group">
                         <label>Assessment Name:</label>
                         <asp:TextBox runat="server" ID="assessName" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" SetFocusOnError="true" ErrorMessage="Please ensure the assessment name field is not left blank." Display="Dynamic" ForeColor="Red" ControlToValidate="assessName"></asp:RequiredFieldValidator>
                     </div>
 
                     <asp:PlaceHolder runat="server" ID="questionPlaceHolder"></asp:PlaceHolder>

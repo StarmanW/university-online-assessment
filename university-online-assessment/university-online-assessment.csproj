@@ -139,7 +139,7 @@
       <DependentUpon>UniversityOnlineAssessmentModel.edmx</DependentUpon>
       <LastGenOutput>UniversityOnlineAssessmentModel.cs</LastGenOutput>
     </Content>
-    <Content Include="NavBarUserControl.ascx" />
+    <Content Include="Views\NavBarUserControl.ascx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -224,6 +224,7 @@
     <Content Include="Views\Student\StudentAssessment.aspx" />
     <Content Include="Views\Student\StudentViewList.aspx" />
     <Content Include="Views\UnauthorizedAccess.aspx" />
+    <Content Include="Views\HomepageUserControl.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -322,11 +323,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UniversityOnlineAssessmentModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="NavBarUserControl.ascx.cs">
+    <Compile Include="Views\NavBarUserControl.ascx.cs">
       <DependentUpon>NavBarUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NavBarUserControl.ascx.designer.cs">
+    <Compile Include="Views\NavBarUserControl.ascx.designer.cs">
       <DependentUpon>NavBarUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -462,6 +463,13 @@
     </Compile>
     <Compile Include="Views\UnauthorizedAccess.aspx.designer.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomepageUserControl.ascx.cs">
+      <DependentUpon>HomepageUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HomepageUserControl.ascx.designer.cs">
+      <DependentUpon>HomepageUserControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

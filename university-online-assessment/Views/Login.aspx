@@ -85,7 +85,7 @@
                             <div class="col-md-10 form-group">
                                 <asp:TextBox runat="server" CssClass="form-control" ID="lecturerId"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="lecturerIdReuqired" runat="server" ControlToValidate="lecturerId" ErrorMessage="Lecturer ID is required." ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="LecturerGroup" />
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="lecturerId" ErrorMessage="Please enter the correct ID format" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="LecturerGroup" ValidationExpression="^\d{5}$" />
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="lecturerId" ErrorMessage="Please enter the correct lecturer ID format" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" ValidationGroup="LecturerGroup" ValidationExpression="^\d{5}$" />
                             </div>
                         </div>
 

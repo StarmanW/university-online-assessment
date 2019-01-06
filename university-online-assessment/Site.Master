@@ -1,10 +1,8 @@
 ﻿<%@ Master Language="C#" EnableViewState="true" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="university_online_assessment.SiteMaster" %>
 
-<%@ Register Src="~/NavBarUserControl.ascx" TagPrefix="uc1" TagName="NavBarUserControl" %>
-
+<%@ Register Src="~/Views/NavBarUserControl.ascx" TagPrefix="uc1" TagName="NavBarUserControl" %>
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
@@ -45,7 +43,8 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <uc1:NavBarUserControl runat="server" id="NavBarUserControl" />
+        <%--Navigation bar--%>
+        <uc1:NavBarUserControl runat="server" ID="NavBarUserControl" />
 
         <%--Main Content Placeholder--%>
         <section id="mainSection">
