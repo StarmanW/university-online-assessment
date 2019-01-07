@@ -22,15 +22,6 @@ namespace university_online_assessment.Views.Admin {
         protected global::System.Web.UI.WebControls.GridView displayStudGrid;
         
         /// <summary>
-        /// displayProgGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView displayProgGrid;
-        
-        /// <summary>
         /// displayLectGrid control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace university_online_assessment.Views.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView displayLectGrid;
+        
+        /// <summary>
+        /// displayProgGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView displayProgGrid;
         
         /// <summary>
         /// hfTab control.

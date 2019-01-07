@@ -123,8 +123,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\booksBg.jpg" />
+    <Content Include="Content\Images\bg2.jpg" />
+    <Content Include="Content\Images\book1.jpg" />
+    <Content Include="Content\Images\book2.jpg" />
     <Content Include="Content\Images\citc2.png" />
+    <Content Include="Content\Images\error.jpg" />
     <Content Include="Content\Images\kelli-tungay-324329-unsplash.jpg" />
     <Content Include="Content\Images\tarc_logo.png" />
     <Content Include="Content\Site.css" />

@@ -48,7 +48,13 @@ namespace university_online_assessment.Views.Lecturer
         //     string sortByExpression
         public IQueryable<university_online_assessment.Models.Enrollment> displayStudentList_GetData()
         {
-            return db.Enrollment.Where(e => e.Programme.faculty.Equals("FOCS"));
+            Guid lecturerID = (Guid)Membership.GetUser().ProviderUserKey;
+            Lecturer_Profile lecturer = db.Lecturer_Profile.Find(lecturerID);
+            if (lecturer == null)
+            {
+                return null;
+            }
+            return db.Enrollment.Where(e => e.Programme.faculty.Equals(lecturer.faculty));
         }
     }
 }

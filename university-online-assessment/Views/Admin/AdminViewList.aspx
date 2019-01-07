@@ -19,8 +19,8 @@
             <nav class="pt-5">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-students-tab" data-toggle="tab" href="#nav-students" role="tab" aria-controls="nav-students" aria-selected="true">Students</a>
-                    <a class="nav-item nav-link" id="nav-programmes-tab" data-toggle="tab" href="#nav-programmes" role="tab" aria-controls="nav-programmes" aria-selected="false">Programmes</a>
                     <a class="nav-item nav-link" id="nav-lecturers-tab" data-toggle="tab" href="#nav-lecturers" role="tab" aria-controls="nav-lecturers" aria-selected="false">Lecturers</a>
+                    <a class="nav-item nav-link" id="nav-programmes-tab" data-toggle="tab" href="#nav-programmes" role="tab" aria-controls="nav-programmes" aria-selected="false">Programmes</a>
                 </div>
             </nav>
 
@@ -59,6 +59,65 @@
                             <asp:TemplateField HeaderText="Student ID" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.UserName">
                                 <ItemTemplate>
                                     <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Programme" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.aspnet_Users.Enrollment.First().Programme.progName}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.firstName} {Item.lastName}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:DynamicField DataField="gender" HeaderText="Gender" HeaderStyle-ForeColor="White" />
+                            <asp:DynamicField DataField="birthDate" HeaderText="Birth date" HeaderStyle-ForeColor="White" />
+                            <asp:DynamicField DataField="icNum" HeaderText="IC Number" HeaderStyle-ForeColor="White" />
+                            <asp:DynamicField DataField="contactNo" HeaderText="Contact" HeaderStyle-ForeColor="White" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+
+                <%--Lecturers Tab--%>
+                <div class="tab-pane fade" id="nav-lecturers" role="tabpanel" aria-labelledby="nav-lecturers-tab">
+                    <h2 class="text-center pt-4">Lecturer List</h2>
+                    <hr />
+
+                    <%--Add new lecturer link--%>
+                    <asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/admin/register/lecturer" Text="Add New Lecturer" />
+
+                    <%--Search Bar for lecturer--%>
+                    <div class="form-inline mt-2">
+                        <label for="lectSearchBox" class="mr-2">Search:</label>
+                        <input type="text" id="lectSearchBox" class="form-control" />
+                    </div>
+
+                    <%--Table for lecturer list--%>
+                    <asp:GridView runat="server"
+                        ID="displayLectGrid"
+                        EmptyDataText="No lecturers found."
+                        GridLines="None"
+                        CssClass="table mt-2"
+                        HeaderStyle-CssClass="thead-dark"
+                        PagerStyle-CssClass="pagination-ys"
+                        ItemType="university_online_assessment.Models.Lecturer_Profile"
+                        DataKeyNames="Id"
+                        AllowSorting="true"
+                        AllowPaging="true"
+                        PageSize="10"
+                        OnSorted="displayLectGrid_Sorted"
+                        AutoGenerateColumns="false"
+                        SelectMethod="getLecturers">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Lecturer ID" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.UserName">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Faculty" HeaderStyle-ForeColor="White" SortExpression="faculty">
+                                <ItemTemplate>
+                                    <asp:Label Text='<%# $"{Item.faculty}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
@@ -102,57 +161,12 @@
                         AutoGenerateColumns="false"
                         SelectMethod="getProgrammes">
                         <Columns>
-                            <asp:DynamicField DataField="progName" HeaderText="Programme Name" HeaderStyle-ForeColor="White" />
                             <asp:DynamicField DataField="faculty" HeaderText="Faculty" HeaderStyle-ForeColor="White" />
-                        </Columns>
-                    </asp:GridView>
-                </div>
-
-                <%--Lecturers Tab--%>
-                <div class="tab-pane fade" id="nav-lecturers" role="tabpanel" aria-labelledby="nav-lecturers-tab">
-                    <h2 class="text-center pt-4">Lecturer List</h2>
-                    <hr />
-
-                    <%--Add new lecturer link--%>
-                    <asp:HyperLink runat="server" CssClass="btn btn-block btn-outline-primary" NavigateUrl="/admin/register/lecturer" Text="Add New Lecturer" />
-
-                    <%--Search Bar for lecturer--%>
-                    <div class="form-inline mt-2">
-                        <label for="lectSearchBox" class="mr-2">Search:</label>
-                        <input type="text" id="lectSearchBox" class="form-control" />
-                    </div>
-
-                    <%--Table for lecturer list--%>
-                    <asp:GridView runat="server"
-                        ID="displayLectGrid"
-                        EmptyDataText="No lecturers found."
-                        GridLines="None"
-                        CssClass="table mt-2"
-                        HeaderStyle-CssClass="thead-dark"
-                        PagerStyle-CssClass="pagination-ys"
-                        ItemType="university_online_assessment.Models.Lecturer_Profile"
-                        DataKeyNames="Id"
-                        AllowSorting="true"
-                        AllowPaging="true"
-                        PageSize="10"
-                        OnSorted="displayLectGrid_Sorted"
-                        AutoGenerateColumns="false"
-                        SelectMethod="getLecturers">
-                        <Columns>
-                            <asp:TemplateField HeaderText="Lecturer ID" HeaderStyle-ForeColor="White" SortExpression="aspnet_Users.UserName">
+                            <asp:TemplateField HeaderText="Programme Name" HeaderStyle-ForeColor="White" SortExpression="progName">
                                 <ItemTemplate>
-                                    <asp:Label Text='<%# $"{Item.aspnet_Users.UserName}" %>' runat="server"></asp:Label>
+                                    <asp:Label Text='<%# $"{Item.progName.Substring(7)}" %>' runat="server"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Name" HeaderStyle-ForeColor="White" SortExpression="firstName">
-                                <ItemTemplate>
-                                    <asp:Label Text='<%# $"{Item.firstName} {Item.lastName}" %>' runat="server"></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:DynamicField DataField="gender" HeaderText="Gender" HeaderStyle-ForeColor="White" />
-                            <asp:DynamicField DataField="birthDate" HeaderText="Birth date" HeaderStyle-ForeColor="White" />
-                            <asp:DynamicField DataField="icNum" HeaderText="IC Number" HeaderStyle-ForeColor="White" />
-                            <asp:DynamicField DataField="contactNo" HeaderText="Contact" HeaderStyle-ForeColor="White" />
                         </Columns>
                     </asp:GridView>
                 </div>
